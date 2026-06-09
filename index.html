@@ -9,7 +9,7 @@
   :root {
     --bg:#f0f2f8;--surface:#ffffff;--surface2:#f5f6fb;--border:#e2e6f0;
     --text:#1a1d2e;--muted:#7b82a0;--accent:#5b5ef4;--accent2:#a855f7;
-    --green:#10b981;--yellow:#f59e0b;--red:#ef4444;--purple:#7c3aed;
+    --green:#16a34a;--yellow:#ca8a04;--orange:#ea580c;--red:#dc2626;--purple:#7c3aed;
     --sidebar-bg:#4f46e5;--sidebar-text:rgba(255,255,255,.75);--sidebar-active:#fff;
     --sidebar-hover:rgba(255,255,255,.12);--sidebar-border:rgba(255,255,255,.1);
   }
@@ -43,7 +43,7 @@
   .kpi-sub{font-size:11px;color:var(--muted);margin-top:8px;font-weight:500;}
   .kpi-trend{display:flex;align-items:center;gap:4px;font-size:11px;margin-top:4px;font-weight:600;}
   .trend-up{color:var(--green);}
-  .trend-warn{color:var(--yellow);}
+  .trend-warn{color:var(--orange);}
   .dept-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
   .dept-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:all .2s;box-shadow:0 2px 8px rgba(79,70,229,.06);}
   .dept-card:hover{box-shadow:0 8px 24px rgba(79,70,229,.12);transform:translateY(-1px);}
@@ -56,10 +56,10 @@
   .process-item:hover{border-color:rgba(79,70,229,.4);background:rgba(79,70,229,.04);box-shadow:0 2px 8px rgba(79,70,229,.08);}
   .process-name{flex:1;font-size:12px;font-weight:500;color:var(--text);}
   .risk-badge{font-size:10px;font-family:'JetBrains Mono',monospace;font-weight:700;padding:2px 8px;border-radius:5px;white-space:nowrap;}
-  .rb-low{background:rgba(16,185,129,.1);color:#059669;border:1px solid rgba(16,185,129,.25);}
-  .rb-med{background:rgba(245,158,11,.1);color:#d97706;border:1px solid rgba(245,158,11,.25);}
-  .rb-high{background:rgba(79,70,229,.1);color:#4f46e5;border:1px solid rgba(79,70,229,.25);}
-  .rb-crit{background:rgba(239,68,68,.1);color:#dc2626;border:1px solid rgba(239,68,68,.25);}
+  .rb-low{ background:rgba(22,163,74,.1); color:#15803d; border:1px solid rgba(22,163,74,.25);}
+  .rb-med{ background:rgba(202,138,4,.1);  color:#a16207; border:1px solid rgba(202,138,4,.25);}
+  .rb-high{background:rgba(234,88,12,.1);  color:#c2410c; border:1px solid rgba(234,88,12,.25);}
+  .rb-crit{background:rgba(220,38,38,.1);  color:#b91c1c; border:1px solid rgba(220,38,38,.25);}
   .risk-score{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;color:var(--muted);width:28px;text-align:right;}
   .bar-chart{display:flex;flex-direction:column;gap:10px;}
   .bar-row{display:flex;align-items:center;gap:12px;}
@@ -95,10 +95,10 @@
   .heatmap-table td{padding:9px 12px;font-size:12px;font-weight:500;vertical-align:middle;border-bottom:1px solid var(--border);color:var(--text);background:var(--surface);}
   .matrix-cell{border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:11px;font-family:'JetBrains Mono',monospace;font-weight:700;cursor:pointer;transition:all .15s;position:relative;min-height:52px;}
   .matrix-cell:hover{transform:scale(1.08);z-index:1;box-shadow:0 6px 20px rgba(0,0,0,.15);}
-  .risk-1{background:rgba(16,185,129,.1);border:2px solid rgba(16,185,129,.2);color:#059669;}
-  .risk-2{background:rgba(245,158,11,.1);border:2px solid rgba(245,158,11,.2);color:#d97706;}
-  .risk-3{background:rgba(79,70,229,.1);border:2px solid rgba(79,70,229,.2);color:#4f46e5;}
-  .risk-4{background:rgba(239,68,68,.1);border:2px solid rgba(239,68,68,.2);color:#dc2626;}
+  .risk-1{background:rgba(22,163,74,.13); border:2px solid rgba(22,163,74,.28); color:#15803d;}
+  .risk-2{background:rgba(202,138,4,.13); border:2px solid rgba(202,138,4,.28); color:#a16207;}
+  .risk-3{background:rgba(234,88,12,.13); border:2px solid rgba(234,88,12,.28); color:#c2410c;}
+  .risk-4{background:rgba(220,38,38,.13); border:2px solid rgba(220,38,38,.28); color:#b91c1c;}
   .legend{display:flex;gap:16px;align-items:center;flex-wrap:wrap;}
   .legend-item{display:flex;align-items:center;gap:6px;font-size:11px;font-weight:600;color:var(--muted);}
   .legend-color{width:12px;height:12px;border-radius:4px;}
@@ -133,7 +133,7 @@
 <nav class="sidebar">
   <div class="sidebar-section">
     <div class="sidebar-label">ภาพรวม</div>
-    <div class="nav-item active" onclick="switchPage('overview',this)"><div class="nav-dot" style="background:var(--accent)"></div>ภาพรวมความเสี่ยง</div>
+    <div class="nav-item active" onclick="switchPage('overview',this)"><div class="nav-dot" style="background:var(--orange)"></div>ภาพรวมความเสี่ยง</div>
     <div class="nav-item" onclick="switchPage('matrix',this)"><div class="nav-dot" style="background:var(--accent2)"></div>Risk Matrix</div>
     <div class="nav-item" onclick="switchPage('heatmap',this)"><div class="nav-dot" style="background:var(--purple)"></div>Heatmap ทุกแผนก</div>
   </div>
@@ -156,7 +156,7 @@
     <div class="nav-item" onclick="switchPage('dept-luk',this)"><div class="nav-dot" style="background:var(--yellow)"></div>ลูกหีบ<span class="nav-count">3</span></div>
     <div class="nav-item" onclick="switchPage('dept-boitom',this)"><div class="nav-dot" style="background:var(--red)"></div>หม้อต้ม<span class="nav-count">4</span></div>
     <div class="nav-item nav-disabled" title="ยังไม่มีข้อมูล"><div class="nav-dot" style="background:var(--border)"></div>หม้อเคี่ยว<span class="nav-count nav-count-lock">🔒</span></div>
-    <div class="nav-item" onclick="switchPage('dept-boipan',this)"><div class="nav-dot" style="background:var(--accent)"></div>หม้อปั่น<span class="nav-count">4</span></div>
+    <div class="nav-item" onclick="switchPage('dept-boipan',this)"><div class="nav-dot" style="background:var(--orange)"></div>หม้อปั่น<span class="nav-count">4</span></div>
     <div class="nav-item" onclick="switchPage('dept-elec',this)"><div class="nav-dot" style="background:var(--yellow)"></div>ไฟฟ้าผลิต<span class="nav-count">6</span></div>
     <div class="nav-item nav-disabled" title="ยังไม่มีข้อมูล"><div class="nav-dot" style="background:var(--border)"></div>ซ่อมบำรุงไฟฟ้า<span class="nav-count nav-count-lock">🔒</span></div>
     <div class="nav-item" onclick="switchPage('dept-mech',this)"><div class="nav-dot" style="background:var(--yellow)"></div>ซ่อมบำรุงเครื่องกล<span class="nav-count">6</span></div>
@@ -181,11 +181,11 @@
     </div>
   </div>
   <div class="kpi-row">
-    <div class="kpi-card" style="--kpi-color:var(--red)"><div class="kpi-label">ความเสี่ยงวิกฤต</div><div class="kpi-value" style="color:var(--red)">16</div><div class="kpi-sub">RPN ≥ 15 · ต้องแก้ไขทันที</div><div class="kpi-trend trend-warn">⚠ ต้องดำเนินการเร่งด่วน</div></div>
-    <div class="kpi-card" style="--kpi-color:var(--accent)"><div class="kpi-label">ความเสี่ยงสูง</div><div class="kpi-value" style="color:var(--accent)">20</div><div class="kpi-sub">RPN 8–14 · ต้องวางแผน</div><div class="kpi-trend trend-warn">↑ ต้องติดตามใกล้ชิด</div></div>
-    <div class="kpi-card" style="--kpi-color:var(--yellow)"><div class="kpi-label">ความเสี่ยงปานกลาง</div><div class="kpi-value" style="color:var(--yellow)">38</div><div class="kpi-sub">RPN 4–7 · ติดตามต่อเนื่อง</div><div class="kpi-trend trend-up">✓ อยู่ในระดับยอมรับได้</div></div>
-    <div class="kpi-card" style="--kpi-color:var(--green)"><div class="kpi-label">ความเสี่ยงต่ำ</div><div class="kpi-value" style="color:var(--green)">22</div><div class="kpi-sub">RPN 1–3 · ยอมรับได้</div><div class="kpi-trend trend-up">✓ อยู่ในระดับควบคุม</div></div>
-    <div class="kpi-card" style="--kpi-color:var(--accent2)"><div class="kpi-label">กระบวนการทั้งหมด</div><div class="kpi-value" style="color:var(--accent2)">96</div><div class="kpi-sub">20 แผนก/ฝ่าย · ทุกสายงาน</div><div class="kpi-trend trend-up">QMS: YES ทุกกระบวนการ</div></div>
+    <div class="kpi-card" style="--kpi-color:var(--red)"><div class="kpi-label">ความเสี่ยงวิกฤต (CRIT)</div><div class="kpi-value" style="color:var(--red)">3</div><div class="kpi-sub">RPN ≥ 15 · ต้องแก้ไขทันที</div><div class="kpi-trend trend-warn">⚠ ต้องดำเนินการเร่งด่วน</div></div>
+    <div class="kpi-card" style="--kpi-color:var(--orange)"><div class="kpi-label">ความเสี่ยงสูง (HIGH)</div><div class="kpi-value" style="color:var(--orange)">6</div><div class="kpi-sub">RPN 8–12 · ต้องวางแผน</div><div class="kpi-trend trend-warn">↑ ต้องติดตามใกล้ชิด</div></div>
+    <div class="kpi-card" style="--kpi-color:var(--yellow)"><div class="kpi-label">ความเสี่ยงปานกลาง (MED)</div><div class="kpi-value" style="color:var(--yellow)">32</div><div class="kpi-sub">RPN 4–6 · ติดตามต่อเนื่อง</div><div class="kpi-trend trend-up">✓ อยู่ในระดับยอมรับได้</div></div>
+    <div class="kpi-card" style="--kpi-color:var(--green)"><div class="kpi-label">ความเสี่ยงต่ำ (LOW)</div><div class="kpi-value" style="color:var(--green)">41</div><div class="kpi-sub">RPN 1–3 · ยอมรับได้</div><div class="kpi-trend trend-up">✓ อยู่ในระดับควบคุม</div></div>
+    <div class="kpi-card" style="--kpi-color:var(--accent2)"><div class="kpi-label">กระบวนการทั้งหมด</div><div class="kpi-value" style="color:var(--accent2)">82</div><div class="kpi-sub">20 แผนก/ฝ่าย · ทุกสายงาน</div><div class="kpi-trend trend-up">QMS: YES ทุกกระบวนการ</div></div>
   </div>
 
   <div class="dept-grid">
@@ -204,7 +204,7 @@
           <div class="process-item" onclick="openModal('hr5')"><span class="process-name">การควบคุมเอกสาร</span><span class="risk-score">2</span><span class="risk-badge rb-low">LOW</span></div>
           <div class="process-item" onclick="openModal('hr6')"><span class="process-name">การปฏิบัติให้ถูกสุขลักษณะ</span><span class="risk-score">6</span><span class="risk-badge rb-med">MED</span></div>
         </div>
-        <div class="mini-stats"><span class="mini-stat"><span class="mini-dot" style="background:var(--red)"></span>CRIT: 1</span><span class="mini-stat"><span class="mini-dot" style="background:var(--yellow)"></span>MED: 3</span><span class="mini-stat"><span class="mini-dot" style="background:var(--green)"></span>LOW: 1</span></div>
+        <div class="mini-stats"><span class="mini-stat"><span class="mini-dot" style="background:var(--yellow)"></span>MED: 2</span><span class="mini-stat"><span class="mini-dot" style="background:var(--green)"></span>LOW: 4</span></div>
       </div>
     </div>
     <!-- Stock Card -->
@@ -222,7 +222,7 @@
           <div class="process-item" onclick="openModal('st5')"><span class="process-name">การจัดเก็บน้ำตาล VHP</span><span class="risk-score">8</span><span class="risk-badge rb-high">HIGH</span></div>
           <div class="process-item" onclick="openModal('st6')"><span class="process-name">การส่งมอบน้ำตาล VHP</span><span class="risk-score">8</span><span class="risk-badge rb-high">HIGH</span></div>
         </div>
-        <div class="mini-stats"><span class="mini-stat"><span class="mini-dot" style="background:var(--red)"></span>CRIT: 3</span><span class="mini-stat"><span class="mini-dot" style="background:var(--accent)"></span>HIGH: 2</span><span class="mini-stat"><span class="mini-dot" style="background:var(--yellow)"></span>MED: 1</span></div>
+        <div class="mini-stats"><span class="mini-stat"><span class="mini-dot" style="background:var(--yellow)"></span>MED: 5</span><span class="mini-stat"><span class="mini-dot" style="background:var(--green)"></span>LOW: 1</span></div>
       </div>
     </div>
     <!-- Cane Planting -->
@@ -239,7 +239,7 @@
           <div class="process-item" onclick="openModal('cp4')"><span class="process-name">การตัดอ้อย</span><span class="risk-score">5</span><span class="risk-badge rb-med">MED</span></div>
           <div class="process-item" onclick="openModal('cp5')"><span class="process-name">การจ่ายเงินผู้รับเหมา</span><span class="risk-score">5</span><span class="risk-badge rb-med">MED</span></div>
         </div>
-        <div class="mini-stats"><span class="mini-stat"><span class="mini-dot" style="background:var(--red)"></span>CRIT: 2</span><span class="mini-stat"><span class="mini-dot" style="background:var(--yellow)"></span>MED: 3</span></div>
+        <div class="mini-stats"><span class="mini-stat"><span class="mini-dot" style="background:var(--red)"></span>CRIT: 1</span><span class="mini-stat"><span class="mini-dot" style="background:var(--orange)"></span>สูง: 1</span><span class="mini-stat"><span class="mini-dot" style="background:var(--yellow)"></span>MED: 3</span></div>
       </div>
     </div>
     <!-- Cane Harvest -->
@@ -256,7 +256,7 @@
           <div class="process-item" onclick="openModal('ch4')"><span class="process-name">การจ่ายเงินผู้รับเหมา (SCS)</span><span class="risk-score">25</span><span class="risk-badge rb-crit">CRIT</span></div>
           <div class="process-item" onclick="openModal('ch5')"><span class="process-name">การควบคุมเอกสาร</span><span class="risk-score">3</span><span class="risk-badge rb-low">LOW</span></div>
         </div>
-        <div class="mini-stats"><span class="mini-stat"><span class="mini-dot" style="background:var(--red)"></span>CRIT: 3</span><span class="mini-stat"><span class="mini-dot" style="background:var(--yellow)"></span>MED: 1</span><span class="mini-stat"><span class="mini-dot" style="background:var(--green)"></span>LOW: 1</span></div>
+        <div class="mini-stats"><span class="mini-stat"><span class="mini-dot" style="background:var(--yellow)"></span>MED: 3</span><span class="mini-stat"><span class="mini-dot" style="background:var(--green)"></span>LOW: 2</span></div>
       </div>
     </div>
     <!-- Instrument -->
@@ -273,7 +273,7 @@
           <div class="process-item" onclick="openModal('in4')"><span class="process-name">งานสอบเทียบระบบ DCS</span><span class="risk-score">16</span><span class="risk-badge rb-crit">CRIT</span></div>
           <div class="process-item" onclick="openModal('in5')"><span class="process-name">งานสอบเทียบเครื่องชั่ง</span><span class="risk-score">9</span><span class="risk-badge rb-high">HIGH</span></div>
         </div>
-        <div class="mini-stats"><span class="mini-stat"><span class="mini-dot" style="background:var(--red)"></span>CRIT: 3</span><span class="mini-stat"><span class="mini-dot" style="background:var(--accent)"></span>HIGH: 2</span></div>
+        <div class="mini-stats"><span class="mini-stat"><span class="mini-dot" style="background:var(--yellow)"></span>MED: 3</span><span class="mini-stat"><span class="mini-dot" style="background:var(--green)"></span>LOW: 2</span></div>
       </div>
     </div>
     <!-- Sugar -->
@@ -290,7 +290,7 @@
           <div class="process-item" onclick="openModal('sp4')"><span class="process-name">การซ่อมแซมเครื่องจักร</span><span class="risk-score">6</span><span class="risk-badge rb-med">MED</span></div>
           <div class="process-item" onclick="openModal('sp5')"><span class="process-name">กระบวนการซักกระสอบ Big Bag</span><span class="risk-score">9</span><span class="risk-badge rb-high">HIGH</span></div>
         </div>
-        <div class="mini-stats"><span class="mini-stat"><span class="mini-dot" style="background:var(--accent)"></span>HIGH: 1</span><span class="mini-stat"><span class="mini-dot" style="background:var(--yellow)"></span>MED: 4</span></div>
+        <div class="mini-stats"><span class="mini-stat"><span class="mini-dot" style="background:var(--yellow)"></span>MED: 2</span><span class="mini-stat"><span class="mini-dot" style="background:var(--green)"></span>LOW: 3</span></div>
       </div>
     </div>
     <!-- Purchasing Card (NEW) -->
@@ -308,7 +308,7 @@
           <div class="process-item" onclick="openModal('pur5')"><span class="process-name">งานตรวจรับสินค้า</span><span class="risk-score">4</span><span class="risk-badge rb-med">MED</span></div>
           <div class="process-item" onclick="openModal('pur6')"><span class="process-name">การควบคุมเอกสาร</span><span class="risk-score">2</span><span class="risk-badge rb-low">LOW</span></div>
         </div>
-        <div class="mini-stats"><span class="mini-stat"><span class="mini-dot" style="background:var(--red)"></span>CRIT: 1</span><span class="mini-stat"><span class="mini-dot" style="background:var(--yellow)"></span>MED: 4</span><span class="mini-stat"><span class="mini-dot" style="background:var(--green)"></span>LOW: 1</span></div>
+        <div class="mini-stats"><span class="mini-stat"><span class="mini-dot" style="background:var(--red)"></span>CRIT: 1</span><span class="mini-stat"><span class="mini-dot" style="background:var(--yellow)"></span>MED: 3</span><span class="mini-stat"><span class="mini-dot" style="background:var(--green)"></span>LOW: 2</span></div>
       </div>
     </div>
     <!-- Marketing Card (NEW) -->
@@ -324,7 +324,7 @@
           <div class="process-item" onclick="openModal('mkt3')"><span class="process-name">การปฏิบัติตามกฎหมาย</span><span class="risk-score">15</span><span class="risk-badge rb-crit">CRIT</span></div>
           <div class="process-item" onclick="openModal('mkt4')"><span class="process-name">การควบคุมเอกสารและการบันทึก</span><span class="risk-score">4</span><span class="risk-badge rb-med">MED</span></div>
         </div>
-        <div class="mini-stats"><span class="mini-stat"><span class="mini-dot" style="background:var(--red)"></span>CRIT: 2</span><span class="mini-stat"><span class="mini-dot" style="background:var(--yellow)"></span>MED: 2</span></div>
+        <div class="mini-stats"><span class="mini-stat"><span class="mini-dot" style="background:var(--red)"></span>CRIT: 1</span><span class="mini-stat"><span class="mini-dot" style="background:var(--orange)"></span>สูง: 1</span><span class="mini-stat"><span class="mini-dot" style="background:var(--yellow)"></span>MED: 2</span></div>
       </div>
     </div>
     <!-- Electricity Card (NEW) -->
@@ -342,7 +342,7 @@
           <div class="process-item" onclick="openModal('elec5')"><span class="process-name">ถ่ายโอนสมดุลไฟฟ้าไม่ตรงมาตรฐาน</span><span class="risk-score">1</span><span class="risk-badge rb-low">LOW</span></div>
           <div class="process-item" onclick="openModal('elec6')"><span class="process-name">Steam ไอน้ำรวมชุดท่อสมวน</span><span class="risk-score">4</span><span class="risk-badge rb-med">MED</span></div>
         </div>
-        <div class="mini-stats"><span class="mini-stat"><span class="mini-dot" style="background:var(--yellow)"></span>MED: 2</span><span class="mini-stat"><span class="mini-dot" style="background:var(--green)"></span>LOW: 4</span></div>
+        <div class="mini-stats"><span class="mini-stat"><span class="mini-dot" style="background:var(--green)"></span>LOW: 6</span></div>
       </div>
     </div>
     <!-- Quality Analysis Card (NEW) -->
@@ -361,7 +361,7 @@
           <div class="process-item" onclick="openModal('qa6')"><span class="process-name">รายงานผลและส่งมอบข้อมูล</span><span class="risk-score">4</span><span class="risk-badge rb-med">MED</span></div>
           <div class="process-item" onclick="openModal('qa7')"><span class="process-name">การพัฒนาทักษะบุคลากรห้องแล็บ</span><span class="risk-score">3</span><span class="risk-badge rb-low">LOW</span></div>
         </div>
-        <div class="mini-stats"><span class="mini-stat"><span class="mini-dot" style="background:var(--red)"></span>CRIT: 2</span><span class="mini-stat"><span class="mini-dot" style="background:var(--yellow)"></span>MED: 4</span><span class="mini-stat"><span class="mini-dot" style="background:var(--green)"></span>LOW: 1</span></div>
+        <div class="mini-stats"><span class="mini-stat"><span class="mini-dot" style="background:var(--yellow)"></span>MED: 2</span><span class="mini-stat"><span class="mini-dot" style="background:var(--green)"></span>LOW: 5</span></div>
       </div>
     </div>
     <!-- IT Card (HIDDEN - no data yet) -->
@@ -378,7 +378,7 @@
           <div class="process-item" onclick="openModal('it4')"><span class="process-name">IT Helpdesk สนับสนุนผู้ใช้งาน</span><span class="risk-score">6</span><span class="risk-badge rb-med">MED</span></div>
           <div class="process-item" onclick="openModal('it5')"><span class="process-name">การควบคุมเอกสาร IT</span><span class="risk-score">2</span><span class="risk-badge rb-low">LOW</span></div>
         </div>
-        <div class="mini-stats"><span class="mini-stat"><span class="mini-dot" style="background:var(--accent)"></span>HIGH: 3</span><span class="mini-stat"><span class="mini-dot" style="background:var(--yellow)"></span>MED: 1</span><span class="mini-stat"><span class="mini-dot" style="background:var(--green)"></span>LOW: 1</span></div>
+        <div class="mini-stats"><span class="mini-stat"><span class="mini-dot" style="background:var(--orange)"></span>สูง: 2</span><span class="mini-stat"><span class="mini-dot" style="background:var(--green)"></span>LOW: 2</span></div>
       </div>
     </div>
     <!-- หม้อต้ม Card (NEW) -->
@@ -394,7 +394,7 @@
           <div class="process-item" onclick="openModal('bt3')"><span class="process-name">ซ่อมบำรุงเครื่องจักรหม้อต้ม</span><span class="risk-score">3</span><span class="risk-badge rb-low">LOW</span></div>
           <div class="process-item" onclick="openModal('bt4')"><span class="process-name">การควบคุมเอกสารและบันทึก</span><span class="risk-score">2</span><span class="risk-badge rb-low">LOW</span></div>
         </div>
-        <div class="mini-stats"><span class="mini-stat"><span class="mini-dot" style="background:var(--accent)"></span>HIGH: 2</span><span class="mini-stat"><span class="mini-dot" style="background:var(--green)"></span>LOW: 2</span></div>
+        <div class="mini-stats"><span class="mini-stat"><span class="mini-dot" style="background:var(--orange)"></span>สูง: 1</span><span class="mini-stat"><span class="mini-dot" style="background:var(--yellow)"></span>MED: 1</span><span class="mini-stat"><span class="mini-dot" style="background:var(--green)"></span>LOW: 2</span></div>
       </div>
     </div>
     <!-- หม้อเคี่ยว Card (HIDDEN - no data yet) -->
@@ -410,7 +410,7 @@
           <div class="process-item" onclick="openModal('bk3')"><span class="process-name">ซ่อมบำรุงหม้อเคี่ยว</span><span class="risk-score">3</span><span class="risk-badge rb-low">LOW</span></div>
           <div class="process-item" onclick="openModal('bk4')"><span class="process-name">การควบคุมเอกสารและบันทึก</span><span class="risk-score">2</span><span class="risk-badge rb-low">LOW</span></div>
         </div>
-        <div class="mini-stats"><span class="mini-stat"><span class="mini-dot" style="background:var(--accent)"></span>HIGH: 2</span><span class="mini-stat"><span class="mini-dot" style="background:var(--green)"></span>LOW: 2</span></div>
+        <div class="mini-stats"></div>
       </div>
     </div>
     <!-- หม้อปั่น Card (NEW) -->
@@ -426,7 +426,7 @@
           <div class="process-item" onclick="openModal('bp3')"><span class="process-name">ซ่อมบำรุงเครื่องปั่น</span><span class="risk-score">3</span><span class="risk-badge rb-low">LOW</span></div>
           <div class="process-item" onclick="openModal('bp4')"><span class="process-name">การควบคุมเอกสารและบันทึก</span><span class="risk-score">2</span><span class="risk-badge rb-low">LOW</span></div>
         </div>
-        <div class="mini-stats"><span class="mini-stat"><span class="mini-dot" style="background:var(--accent)"></span>HIGH: 1</span><span class="mini-stat"><span class="mini-dot" style="background:var(--yellow)"></span>MED: 1</span><span class="mini-stat"><span class="mini-dot" style="background:var(--green)"></span>LOW: 2</span></div>
+        <div class="mini-stats"></div>
       </div>
     </div>
     <!-- ซ่อมบำรุงไฟฟ้า Card (HIDDEN - no data yet) -->
@@ -443,7 +443,7 @@
           <div class="process-item" onclick="openModal('em4')"><span class="process-name">ระบบ Grounding / Lightning</span><span class="risk-score">4</span><span class="risk-badge rb-med">MED</span></div>
           <div class="process-item" onclick="openModal('em5')"><span class="process-name">การควบคุมเอกสาร</span><span class="risk-score">2</span><span class="risk-badge rb-low">LOW</span></div>
         </div>
-        <div class="mini-stats"><span class="mini-stat"><span class="mini-dot" style="background:var(--accent)"></span>HIGH: 1</span><span class="mini-stat"><span class="mini-dot" style="background:var(--yellow)"></span>MED: 3</span><span class="mini-stat"><span class="mini-dot" style="background:var(--green)"></span>LOW: 1</span></div>
+        <div class="mini-stats"></div>
       </div>
     </div>
     <!-- บริหารคุณภาพ Card (HIDDEN - no data yet) -->
@@ -460,7 +460,7 @@
           <div class="process-item" onclick="openModal('qm4')"><span class="process-name">การ Audit ภายใน</span><span class="risk-score">4</span><span class="risk-badge rb-med">MED</span></div>
           <div class="process-item" onclick="openModal('qm5')"><span class="process-name">การควบคุมเอกสาร QMS</span><span class="risk-score">3</span><span class="risk-badge rb-low">LOW</span></div>
         </div>
-        <div class="mini-stats"><span class="mini-stat"><span class="mini-dot" style="background:var(--yellow)"></span>MED: 4</span><span class="mini-stat"><span class="mini-dot" style="background:var(--green)"></span>LOW: 1</span></div>
+        <div class="mini-stats"></div>
       </div>
     </div>
   </div>
@@ -471,7 +471,7 @@
       <div style="font-size:14px;font-weight:600;">📈 ระดับความเสี่ยงรวมแต่ละแผนก (Risk Score)</div>
       <div class="legend">
         <div class="legend-item"><div class="legend-color" style="background:var(--red)"></div>วิกฤต ≥15</div>
-        <div class="legend-item"><div class="legend-color" style="background:var(--accent)"></div>สูง 8-14</div>
+        <div class="legend-item"><div class="legend-color" style="background:var(--orange)"></div>สูง 8-14</div>
         <div class="legend-item"><div class="legend-color" style="background:var(--yellow)"></div>ปานกลาง 4-7</div>
         <div class="legend-item"><div class="legend-color" style="background:var(--green)"></div>ต่ำ 1-3</div>
       </div>
@@ -610,42 +610,42 @@
 
 <script>
 const riskData = [
-  {id:'hr1',dept:'ทรัพยากรบุคคล',deptKey:'hr',name:'การสรรหาและว่าจ้างพนักงาน',O:1,S:2,rpn:4,risks:['สรรหาบุคลากรไม่ได้ตามกรอบระยะเวลา','การแข่งขันด้านแรงงานในตลาดสูง'],actions:['ประกาศรับสมัครหลายช่องทาง (Facebook, Line, โทรศัพท์)','สร้าง Connection กับสถาบันการศึกษา','บริษัท มีสัญญา MOU กับสถาบันการศึกษา']},
-  {id:'hr2',dept:'ทรัพยากรบุคคล',deptKey:'hr',name:'งานฝึกอบรม',O:2,S:1,rpn:4,risks:['ระบบไม่ชัดเจนแผนกที่ควรรู้','พนักงานไม่ผ่านการ OJT ตามที่กำหนด'],actions:['วางแผนการอบรมและประสานงานวิชาการ','Report รายชื่อคนที่ไม่เข้าอบรมให้ HR ทราบ','ทำหน้าที่พนักงานแต่ละส่วน ควรจะปฏิบัติตามหลักสูตรนั้น']},
-  {id:'hr3',dept:'ทรัพยากรบุคคล',deptKey:'hr',name:'งานค่าจ้างและเงินเดือน',O:1,S:4,rpn:16,risks:['ความผิดพลาดในการจ่ายค่าจ้าง (คิดผิดสูตร)','ส่งแบบสรุปไม่ตรงตารางกำหนดการ PY','พนักงานไม่ตรวจรายงานตนเองก่อนโอนสั่งจ่าย','HR ผิดข้อมูลพลาด','จ่ายค่าตอบแทนไม่ถูกต้อง'],actions:['คิดคำนวณสวัสดิ์ Support PY ผ่านทางการสำรวจกำหนดการ PY','HR ให้พนักงานตรวจรายงานตนเองก่อนแจ้งกับพนักงานมิให้แนบส่งจ่าย','OJT ซักซ้อมการจัดทำเงินเดือน และตรวจสอบรายงานก่อนนำส่งให้ทำการส่งจ่าย','นำระบบ ESS มาใช้ เริ่ม 1/5/2024']},
-  {id:'hr4',dept:'ทรัพยากรบุคคล',deptKey:'hr',name:'งานจ้างเหมา',O:1,S:2,rpn:4,risks:['พนักงานของบริษัทรับเหมาไม่มีความรู้','ไม่ปฏิบัติตามระเบียบของบริษัท'],actions:['Audit บริษัทรับเหมา ในเรื่องของการรับเข้างาน','มีการประเมินผลการปฏิบัติงาน 2 เดือนครั้ง','ประชุมร่วมกับบริษัทรับเหมา']},
-  {id:'hr5',dept:'ทรัพยากรบุคคล',deptKey:'hr',name:'การควบคุมเอกสาร',O:1,S:1,rpn:2,risks:['เอกสารสูญหาย'],actions:['ทำสมุดลงชื่อรับเอกสาร','OJT ให้มีความเข้าใจรูปแบบและการบันทึกเอกสาร']},
-  {id:'hr6',dept:'ทรัพยากรบุคคล',deptKey:'hr',name:'การปฏิบัติให้ถูกสุขลักษณะ',O:2,S:2,rpn:6,risks:['พนักงานไม่มาตรวจสุขภาพประจำปีตามแผน','ขัดขวาง/ล่าช้าในการรับบริการตรวจสุขภาพ'],actions:['เวชวิทยาการให้ความรู้','จัดอาหารรองรับวันให้บริการพนักงาน','บริษัทจัดอาหารรองวันให้บริการพนักงาน ระดับ 1-3']},
-  {id:'st1',dept:'คลังสินค้า/ห้องชั่ง',deptKey:'stock',name:'การรับอ้อยเข้าหีบ',O:1,S:1,rpn:4,risks:['ข้อมูลแสดงว่าไม่สมบูรณ์','การสอดดิจิตชื่อหีบ'],actions:['นำใช้เครื่องอ่านบาร์โค้ด RFID','นำใช้ Cane MIS ผ่านเว็บไซต์']},
-  {id:'st2',dept:'คลังสินค้า/ห้องชั่ง',deptKey:'stock',name:'การรับน้ำตาล VHP',O:1,S:5,rpn:25,risks:['น้ำตาลไม่ได้คุณภาพตาม Spec','ปีบเนื้อสัตว์พาหะน้ำเข้า','เครื่องชั่งไม่เที่ยงตรงสต็อก'],actions:['ตรวจสอบคุณภาพก่อนรับสินค้าเข้าจัดเก็บ','ควบคุมสัตว์พาหะน้ำเข้าตามระเบียบการควบคุม','ตรวจสอบเครื่องชั่ง/ตรวจวัดสอดคงกำลังสม่ำเสมอ']},
-  {id:'st3',dept:'คลังสินค้า/ห้องชั่ง',deptKey:'stock',name:'การเคลื่อนย้ายน้ำตาล VHP',O:1,S:5,rpn:25,risks:['ปีบเนื้อสัตว์พาหะน้ำเข้า','น้ำตาลสูญหาย','ปีบเนื้อผลิตจากอุปกรณ์เครื่องจักรที่ใช้'],actions:['ควบคุมสัตว์พาหะน้ำเข้า','ตรวจสอบเส้นทางและพลังรถก่อนโหลด','ควบคุมการน้ำเข้าวัสดุอุปกรณ์']},
-  {id:'st4',dept:'คลังสินค้า/ห้องชั่ง',deptKey:'stock',name:'การรับน้ำตาล DCR & Organic',O:1,S:5,rpn:25,risks:['น้ำตาลไม่ได้คุณภาพตาม Spec','ปริมาณไม่ตรงตามน้ำหนัก','ปีบเนื้อจากอุปกรณ์เครื่องจักรที่ใช้'],actions:['ตรวจสอบคุณภาพก่อนรับสินค้าเข้าจัดเก็บ','SAP เทียบกำลังตรวจการรับสินค้า','ตรวจสอบ Auditor ของระบบ']},
-  {id:'st5',dept:'คลังสินค้า/ห้องชั่ง',deptKey:'stock',name:'การจัดเก็บน้ำตาล VHP',O:2,S:2,rpn:8,risks:['ฝุ่น แมลง มลภาวะ','สัตว์พาหะน้ำเข้า','คนไม่หรวัดดี'],actions:['ตรวจสอบคุณภาพน้ำเข้า','ควบคุมสัตว์พาหะน้ำเข้า']},
-  {id:'st6',dept:'คลังสินค้า/ห้องชั่ง',deptKey:'stock',name:'การส่งมอบน้ำตาล VHP',O:1,S:4,rpn:8,risks:['สินค้าตกหล่น','สัตว์พาหะน้ำเข้า','เปียกชื้นจากรถบรรทุก'],actions:['ตรวจสอบสภาพรถบรรทุกก่อน','ควบคุมสัตว์พาหะน้ำเข้า']},
-  {id:'in1',dept:'เครื่องมือควบคุม',deptKey:'inst',name:'งานซ่อม/สอบเทียบอุปกรณ์ควบคุม',O:1,S:4,rpn:16,risks:['พนักงานไม่ชำนาญ','อุปกรณ์ไม่ตรงมาตรฐาน','ดำเนินสอบเทียบไม่ตรงแผน'],actions:['จัดกิจกรรม OJT ให้กับพนักงานในแผนกที่ยังไม่สอบ','ใช้ Certificate ในด้านการควบคุมดูแลสภาพของอุปกรณ์','ไล่เอกสารระเบียบเครื่องจักรของอุปกรณ์ควบคุมในการซัก Calibration']},
-  {id:'in2',dept:'เครื่องมือควบคุม',deptKey:'inst',name:'งานบันทึกเอกสารระบบมาตรฐาน',O:1,S:3,rpn:9,risks:['การบันทึกข้อมูลผิดพลาด','ไม่มีข้อมูลผิดพลาด'],actions:['OJT ให้พนักงานในแผนกที่ยังไม่สอบ','หัวหน้าตรวจสอบข้อมูลโดยตรงสม่ำเสมอ','Log book บันทึก']},
-  {id:'in3',dept:'เครื่องมือควบคุม',deptKey:'inst',name:'งานทวนสอบอุปกรณ์ควบคุมระหว่างผลิต',O:1,S:4,rpn:16,risks:['หน่วยวัดไม่ถูกต้อง','อุปกรณ์ชำรุดระหว่างผลิต'],actions:['ตรวจสอบเครื่องมือวัดค่าสภาพของเครื่องชั่งและอุปกรณ์','Master เทียบมาตรฐาน','เพิ่มการตรวจสอบบ่อยขึ้น']},
-  {id:'in4',dept:'เครื่องมือควบคุม',deptKey:'inst',name:'งานสอบเทียบระบบ DCS',O:1,S:4,rpn:16,risks:['เวลาของระบบ DCS Control ผิด','คอมพิวเตอร์ระบบ DCS อ๊อฟการวัก','พนักงานขาดความรู้'],actions:['มีการดำเนินงานสม่ำเสมอ','มีการตรวจสอบ','OJT ทำแผนพนักงานในแผนกที่ยังไม่สอบ']},
-  {id:'in5',dept:'เครื่องมือควบคุม',deptKey:'inst',name:'งานสอบเทียบเครื่องชั่ง',O:1,S:3,rpn:9,risks:['อุปกรณ์เครื่องชั่งไม่สอบเทียบ','พนักงานขาดความรู้'],actions:['ตรวจสอบประจำ','อบรม OJT','ขอรับบริการจากผู้เชี่ยวชาญ']},
-  {id:'sp1',dept:'งานบรรจุน้ำตาล',deptKey:'sugar',name:'กระบวนการบรรจุน้ำตาล',O:1,S:2,rpn:4,risks:['คอมพิวเตอร์หน่าย','กระสากหยุด'],actions:['ตรวจสอบก่อนผลิต','แจ้งฝ่าย IT']},
+  {id:'hr1',dept:'ทรัพยากรบุคคล',deptKey:'hr',name:'การสรรหาและว่าจ้างพนักงาน',O:1,S:2,rpn:2,risks:['สรรหาบุคลากรไม่ได้ตามกรอบระยะเวลา','การแข่งขันด้านแรงงานในตลาดสูง'],actions:['ประกาศรับสมัครหลายช่องทาง (Facebook, Line, โทรศัพท์)','สร้าง Connection กับสถาบันการศึกษา','บริษัท มีสัญญา MOU กับสถาบันการศึกษา']},
+  {id:'hr2',dept:'ทรัพยากรบุคคล',deptKey:'hr',name:'งานฝึกอบรม',O:2,S:1,rpn:2,risks:['ระบบไม่ชัดเจนแผนกที่ควรรู้','พนักงานไม่ผ่านการ OJT ตามที่กำหนด'],actions:['วางแผนการอบรมและประสานงานวิชาการ','Report รายชื่อคนที่ไม่เข้าอบรมให้ HR ทราบ','ทำหน้าที่พนักงานแต่ละส่วน ควรจะปฏิบัติตามหลักสูตรนั้น']},
+  {id:'hr3',dept:'ทรัพยากรบุคคล',deptKey:'hr',name:'งานค่าจ้างและเงินเดือน',O:1,S:4,rpn:4,risks:['ความผิดพลาดในการจ่ายค่าจ้าง (คิดผิดสูตร)','ส่งแบบสรุปไม่ตรงตารางกำหนดการ PY','พนักงานไม่ตรวจรายงานตนเองก่อนโอนสั่งจ่าย','HR ผิดข้อมูลพลาด','จ่ายค่าตอบแทนไม่ถูกต้อง'],actions:['คิดคำนวณสวัสดิ์ Support PY ผ่านทางการสำรวจกำหนดการ PY','HR ให้พนักงานตรวจรายงานตนเองก่อนแจ้งกับพนักงานมิให้แนบส่งจ่าย','OJT ซักซ้อมการจัดทำเงินเดือน และตรวจสอบรายงานก่อนนำส่งให้ทำการส่งจ่าย','นำระบบ ESS มาใช้ เริ่ม 1/5/2024']},
+  {id:'hr4',dept:'ทรัพยากรบุคคล',deptKey:'hr',name:'งานจ้างเหมา',O:1,S:2,rpn:2,risks:['พนักงานของบริษัทรับเหมาไม่มีความรู้','ไม่ปฏิบัติตามระเบียบของบริษัท'],actions:['Audit บริษัทรับเหมา ในเรื่องของการรับเข้างาน','มีการประเมินผลการปฏิบัติงาน 2 เดือนครั้ง','ประชุมร่วมกับบริษัทรับเหมา']},
+  {id:'hr5',dept:'ทรัพยากรบุคคล',deptKey:'hr',name:'การควบคุมเอกสาร',O:1,S:1,rpn:1,risks:['เอกสารสูญหาย'],actions:['ทำสมุดลงชื่อรับเอกสาร','OJT ให้มีความเข้าใจรูปแบบและการบันทึกเอกสาร']},
+  {id:'hr6',dept:'ทรัพยากรบุคคล',deptKey:'hr',name:'การปฏิบัติให้ถูกสุขลักษณะ',O:2,S:2,rpn:4,risks:['พนักงานไม่มาตรวจสุขภาพประจำปีตามแผน','ขัดขวาง/ล่าช้าในการรับบริการตรวจสุขภาพ'],actions:['เวชวิทยาการให้ความรู้','จัดอาหารรองรับวันให้บริการพนักงาน','บริษัทจัดอาหารรองวันให้บริการพนักงาน ระดับ 1-3']},
+  {id:'st1',dept:'คลังสินค้า/ห้องชั่ง',deptKey:'stock',name:'การรับอ้อยเข้าหีบ',O:1,S:1,rpn:1,risks:['ข้อมูลแสดงว่าไม่สมบูรณ์','การสอดดิจิตชื่อหีบ'],actions:['นำใช้เครื่องอ่านบาร์โค้ด RFID','นำใช้ Cane MIS ผ่านเว็บไซต์']},
+  {id:'st2',dept:'คลังสินค้า/ห้องชั่ง',deptKey:'stock',name:'การรับน้ำตาล VHP',O:1,S:5,rpn:5,risks:['น้ำตาลไม่ได้คุณภาพตาม Spec','ปีบเนื้อสัตว์พาหะน้ำเข้า','เครื่องชั่งไม่เที่ยงตรงสต็อก'],actions:['ตรวจสอบคุณภาพก่อนรับสินค้าเข้าจัดเก็บ','ควบคุมสัตว์พาหะน้ำเข้าตามระเบียบการควบคุม','ตรวจสอบเครื่องชั่ง/ตรวจวัดสอดคงกำลังสม่ำเสมอ']},
+  {id:'st3',dept:'คลังสินค้า/ห้องชั่ง',deptKey:'stock',name:'การเคลื่อนย้ายน้ำตาล VHP',O:1,S:5,rpn:5,risks:['ปีบเนื้อสัตว์พาหะน้ำเข้า','น้ำตาลสูญหาย','ปีบเนื้อผลิตจากอุปกรณ์เครื่องจักรที่ใช้'],actions:['ควบคุมสัตว์พาหะน้ำเข้า','ตรวจสอบเส้นทางและพลังรถก่อนโหลด','ควบคุมการน้ำเข้าวัสดุอุปกรณ์']},
+  {id:'st4',dept:'คลังสินค้า/ห้องชั่ง',deptKey:'stock',name:'การรับน้ำตาล DCR & Organic',O:1,S:5,rpn:5,risks:['น้ำตาลไม่ได้คุณภาพตาม Spec','ปริมาณไม่ตรงตามน้ำหนัก','ปีบเนื้อจากอุปกรณ์เครื่องจักรที่ใช้'],actions:['ตรวจสอบคุณภาพก่อนรับสินค้าเข้าจัดเก็บ','SAP เทียบกำลังตรวจการรับสินค้า','ตรวจสอบ Auditor ของระบบ']},
+  {id:'st5',dept:'คลังสินค้า/ห้องชั่ง',deptKey:'stock',name:'การจัดเก็บน้ำตาล VHP',O:2,S:2,rpn:4,risks:['ฝุ่น แมลง มลภาวะ','สัตว์พาหะน้ำเข้า','คนไม่หรวัดดี'],actions:['ตรวจสอบคุณภาพน้ำเข้า','ควบคุมสัตว์พาหะน้ำเข้า']},
+  {id:'st6',dept:'คลังสินค้า/ห้องชั่ง',deptKey:'stock',name:'การส่งมอบน้ำตาล VHP',O:1,S:4,rpn:4,risks:['สินค้าตกหล่น','สัตว์พาหะน้ำเข้า','เปียกชื้นจากรถบรรทุก'],actions:['ตรวจสอบสภาพรถบรรทุกก่อน','ควบคุมสัตว์พาหะน้ำเข้า']},
+  {id:'in1',dept:'เครื่องมือควบคุม',deptKey:'inst',name:'งานซ่อม/สอบเทียบอุปกรณ์ควบคุม',O:1,S:4,rpn:4,risks:['พนักงานไม่ชำนาญ','อุปกรณ์ไม่ตรงมาตรฐาน','ดำเนินสอบเทียบไม่ตรงแผน'],actions:['จัดกิจกรรม OJT ให้กับพนักงานในแผนกที่ยังไม่สอบ','ใช้ Certificate ในด้านการควบคุมดูแลสภาพของอุปกรณ์','ไล่เอกสารระเบียบเครื่องจักรของอุปกรณ์ควบคุมในการซัก Calibration']},
+  {id:'in2',dept:'เครื่องมือควบคุม',deptKey:'inst',name:'งานบันทึกเอกสารระบบมาตรฐาน',O:1,S:3,rpn:3,risks:['การบันทึกข้อมูลผิดพลาด','ไม่มีข้อมูลผิดพลาด'],actions:['OJT ให้พนักงานในแผนกที่ยังไม่สอบ','หัวหน้าตรวจสอบข้อมูลโดยตรงสม่ำเสมอ','Log book บันทึก']},
+  {id:'in3',dept:'เครื่องมือควบคุม',deptKey:'inst',name:'งานทวนสอบอุปกรณ์ควบคุมระหว่างผลิต',O:1,S:4,rpn:4,risks:['หน่วยวัดไม่ถูกต้อง','อุปกรณ์ชำรุดระหว่างผลิต'],actions:['ตรวจสอบเครื่องมือวัดค่าสภาพของเครื่องชั่งและอุปกรณ์','Master เทียบมาตรฐาน','เพิ่มการตรวจสอบบ่อยขึ้น']},
+  {id:'in4',dept:'เครื่องมือควบคุม',deptKey:'inst',name:'งานสอบเทียบระบบ DCS',O:1,S:4,rpn:4,risks:['เวลาของระบบ DCS Control ผิด','คอมพิวเตอร์ระบบ DCS อ๊อฟการวัก','พนักงานขาดความรู้'],actions:['มีการดำเนินงานสม่ำเสมอ','มีการตรวจสอบ','OJT ทำแผนพนักงานในแผนกที่ยังไม่สอบ']},
+  {id:'in5',dept:'เครื่องมือควบคุม',deptKey:'inst',name:'งานสอบเทียบเครื่องชั่ง',O:1,S:3,rpn:3,risks:['อุปกรณ์เครื่องชั่งไม่สอบเทียบ','พนักงานขาดความรู้'],actions:['ตรวจสอบประจำ','อบรม OJT','ขอรับบริการจากผู้เชี่ยวชาญ']},
+  {id:'sp1',dept:'งานบรรจุน้ำตาล',deptKey:'sugar',name:'กระบวนการบรรจุน้ำตาล',O:1,S:2,rpn:2,risks:['คอมพิวเตอร์หน่าย','กระสากหยุด'],actions:['ตรวจสอบก่อนผลิต','แจ้งฝ่าย IT']},
   {id:'sp2',dept:'งานบรรจุน้ำตาล',deptKey:'sugar',name:'ขั้นแผนการบรรจุและใช้ภาชนะบรรจุ',O:1,S:4,rpn:4,risks:['แผนผลิตเปลี่ยน','ขาดวัสดุบรรจุ'],actions:['วางแผนล่วงหน้า','ติดตามสต๊อกภาชนะบรรจุ']},
-  {id:'sp3',dept:'งานบรรจุน้ำตาล',deptKey:'sugar',name:'การควบคุมเอกสารและบันทึก',O:1,S:2,rpn:4,risks:['เอกสารสูญหาย','บันทึกผิดพลาด'],actions:['จัดระบบเอกสาร','OJT']},
-  {id:'sp4',dept:'งานบรรจุน้ำตาล',deptKey:'sugar',name:'การซ่อมแซมเครื่องจักร',O:1,S:3,rpn:6,risks:['เครื่องจักรขัดข้อง','อะไหล่ไม่พอ'],actions:['PM แผนประจำปี','สต็อกอะไหล่']},
-  {id:'sp5',dept:'งานบรรจุน้ำตาล',deptKey:'sugar',name:'กระบวนการซักกระสอบ Big Bag',O:2,S:3,rpn:9,risks:['กระสอบสกปรก/เปียก','น้ำไม่สะอาด','ฝุ่น'],actions:['ทำความสะอาดน้ำก่อนใช้','ตรวจสอบกระสอบก่อนใช้','จัดการ Spare part']},
-  {id:'mc1',dept:'ซ่อมบำรุงเครื่องกล',deptKey:'mech',name:'ผลิตน้ำใช้โรงงาน',O:2,S:2,rpn:8,risks:['คุณภาพน้ำไม่ได้มาตรฐาน','ระบบกรองน้ำขัดข้อง'],actions:['ตรวจสอบสม่ำเสมอ','บำบัดน้ำตามมาตรฐาน']},
-  {id:'mc2',dept:'ซ่อมบำรุงเครื่องกล',deptKey:'mech',name:'ผลิตน้ำ Soft',O:2,S:3,rpn:8,risks:['Hardness สูงเกินกำหนด','ระบบ Water Softener ขัดข้อง'],actions:['ตรวจสอบ Resin Softener','Resin Softener ตามความดัน']},
-  {id:'mc3',dept:'ซ่อมบำรุงเครื่องกล',deptKey:'mech',name:'ตรวจสอบการทำงานและซ่อมแซมระบบน้ำ',O:1,S:2,rpn:4,risks:['เครื่องชำรุด','ระบบรั่ว'],actions:['ตรวจสอบประจำ','PM']},
+  {id:'sp3',dept:'งานบรรจุน้ำตาล',deptKey:'sugar',name:'การควบคุมเอกสารและบันทึก',O:1,S:2,rpn:2,risks:['เอกสารสูญหาย','บันทึกผิดพลาด'],actions:['จัดระบบเอกสาร','OJT']},
+  {id:'sp4',dept:'งานบรรจุน้ำตาล',deptKey:'sugar',name:'การซ่อมแซมเครื่องจักร',O:1,S:3,rpn:3,risks:['เครื่องจักรขัดข้อง','อะไหล่ไม่พอ'],actions:['PM แผนประจำปี','สต็อกอะไหล่']},
+  {id:'sp5',dept:'งานบรรจุน้ำตาล',deptKey:'sugar',name:'กระบวนการซักกระสอบ Big Bag',O:2,S:3,rpn:6,risks:['กระสอบสกปรก/เปียก','น้ำไม่สะอาด','ฝุ่น'],actions:['ทำความสะอาดน้ำก่อนใช้','ตรวจสอบกระสอบก่อนใช้','จัดการ Spare part']},
+  {id:'mc1',dept:'ซ่อมบำรุงเครื่องกล',deptKey:'mech',name:'ผลิตน้ำใช้โรงงาน',O:2,S:2,rpn:4,risks:['คุณภาพน้ำไม่ได้มาตรฐาน','ระบบกรองน้ำขัดข้อง'],actions:['ตรวจสอบสม่ำเสมอ','บำบัดน้ำตามมาตรฐาน']},
+  {id:'mc2',dept:'ซ่อมบำรุงเครื่องกล',deptKey:'mech',name:'ผลิตน้ำ Soft',O:2,S:3,rpn:6,risks:['Hardness สูงเกินกำหนด','ระบบ Water Softener ขัดข้อง'],actions:['ตรวจสอบ Resin Softener','Resin Softener ตามความดัน']},
+  {id:'mc3',dept:'ซ่อมบำรุงเครื่องกล',deptKey:'mech',name:'ตรวจสอบการทำงานและซ่อมแซมระบบน้ำ',O:1,S:2,rpn:2,risks:['เครื่องชำรุด','ระบบรั่ว'],actions:['ตรวจสอบประจำ','PM']},
   {id:'mc4',dept:'ซ่อมบำรุงเครื่องกล',deptKey:'mech',name:'ซ่อมแซมเครื่องจักรในโรงงาน',O:5,S:2,rpn:10,risks:['ช่างขาดงาน','อะไหล่ไม่พอ','ซ่อมไม่ตามแผน'],actions:['OJT','สต็อกอะไหล่','PM ประจำปี']},
   {id:'mc5',dept:'ซ่อมบำรุงเครื่องกล',deptKey:'mech',name:'กลึงขึ้นรูปชิ้นงาน',O:4,S:1,rpn:4,risks:['ช่างไม่มีประสบการณ์เพียงพอ'],actions:['Training','OJT']},
   {id:'mc6',dept:'ซ่อมบำรุงเครื่องกล',deptKey:'mech',name:'ควบคุมเอกสารและบันทึก',O:2,S:2,rpn:4,risks:['บันทึกผิด'],actions:['OJT','ตรวจสอบ']},
-  {id:'bo1',dept:'แผนกหม้อไอน้ำ',deptKey:'boiler',name:'การบำรุงรักษาเครื่องจักรแผนกหม้อไอน้ำ',O:1,S:3,rpn:9,risks:['ทักษะความชำนาญของพนักงาน Operation น้อย','เครื่องมือที่ใช้ในการตรวจสอบน้อยเพียงพอ'],actions:['อบรมพนักงานให้มีทักษะและความชำนาญมากขึ้น','ขอขอบมีประสมายในการซ่อง','ประสานงานกับ ขป สำรวจพร้อมสัมผัสก่อนปฏิบัติงาน']},
-  {id:'bo2',dept:'แผนกหม้อไอน้ำ',deptKey:'boiler',name:'การเดินและควบคุมหม้อไอน้ำ',O:1,S:3,rpn:9,risks:['Pressure เกินกำหนด','Temp น้ำสูงเกิน','ปัญหาจากเชื้อเพลิง'],actions:['ตรวจสอบ Safety Valve','ฝึกอบรมพนักงาน','ตรวจสอบเชื้อเพลิง']},
-  {id:'bo3',dept:'แผนกหม้อไอน้ำ',deptKey:'boiler',name:'การควบคุมเอกสารและบันทึก (ทั้งปี)',O:1,S:2,rpn:4,risks:['บันทึกผิด'],actions:['OJT','ตรวจสอบ']},
+  {id:'bo1',dept:'แผนกหม้อไอน้ำ',deptKey:'boiler',name:'การบำรุงรักษาเครื่องจักรแผนกหม้อไอน้ำ',O:1,S:3,rpn:3,risks:['ทักษะความชำนาญของพนักงาน Operation น้อย','เครื่องมือที่ใช้ในการตรวจสอบน้อยเพียงพอ'],actions:['อบรมพนักงานให้มีทักษะและความชำนาญมากขึ้น','ขอขอบมีประสมายในการซ่อง','ประสานงานกับ ขป สำรวจพร้อมสัมผัสก่อนปฏิบัติงาน']},
+  {id:'bo2',dept:'แผนกหม้อไอน้ำ',deptKey:'boiler',name:'การเดินและควบคุมหม้อไอน้ำ',O:1,S:3,rpn:3,risks:['Pressure เกินกำหนด','Temp น้ำสูงเกิน','ปัญหาจากเชื้อเพลิง'],actions:['ตรวจสอบ Safety Valve','ฝึกอบรมพนักงาน','ตรวจสอบเชื้อเพลิง']},
+  {id:'bo3',dept:'แผนกหม้อไอน้ำ',deptKey:'boiler',name:'การควบคุมเอกสารและบันทึก (ทั้งปี)',O:1,S:2,rpn:2,risks:['บันทึกผิด'],actions:['OJT','ตรวจสอบ']},
   {id:'pu1',dept:'พัสดุ',deptKey:'store',name:'การรับสินค้า (ทั่วไป)',O:1,S:3,rpn:3,risks:['ของไม่ตรง Spec'],actions:['ตรวจรับตาม PO','ส่งคืน Supplier']},
   {id:'pu2',dept:'พัสดุ',deptKey:'store',name:'การรับสินค้า (เคมีบรรจุสารเคมี)',O:1,S:3,rpn:3,risks:['ไม่มีเอกสาร COA','ระบบ SAP ไม่พร้อม'],actions:['แจ้งให้ส่งมา COA ก่อน','ตรวจวิเคราะห์หาค่าตัวอย่าง']},
-  {id:'pu3',dept:'พัสดุ',deptKey:'store',name:'งานตัดจ่ายสินค้า',O:1,S:5,rpn:3,risks:['ตัดจ่ายสินค้าไม่ถูกต้อง Stock','ตัดจ่ายไม่ถูกตาม FIFO'],actions:['การตรวจสอบสินค้าทุก 1 เดือน','ระบบ SAP']},
-  {id:'pu4',dept:'พัสดุ',deptKey:'store',name:'การจัดเก็บสินค้า',O:1,S:5,rpn:3,risks:['สินค้าไม่เหมาะสมสถานที่','สินค้าเปลี่ยนคุณสมบัติ'],actions:['ตรวจสอบ Min/Max','จัดเก็บตามประเภท']},
-  {id:'pu5',dept:'พัสดุ',deptKey:'store',name:'งานตัดยอดน้ำมัน',O:1,S:3,rpn:5,risks:['น้ำมันไม่ตรง'],actions:['ตรวจสอบ STOCK','บันทึกทุกเดือน']},
+  {id:'pu3',dept:'พัสดุ',deptKey:'store',name:'งานตัดจ่ายสินค้า',O:1,S:5,rpn:5,risks:['ตัดจ่ายสินค้าไม่ถูกต้อง Stock','ตัดจ่ายไม่ถูกตาม FIFO'],actions:['การตรวจสอบสินค้าทุก 1 เดือน','ระบบ SAP']},
+  {id:'pu4',dept:'พัสดุ',deptKey:'store',name:'การจัดเก็บสินค้า',O:1,S:5,rpn:5,risks:['สินค้าไม่เหมาะสมสถานที่','สินค้าเปลี่ยนคุณสมบัติ'],actions:['ตรวจสอบ Min/Max','จัดเก็บตามประเภท']},
+  {id:'pu5',dept:'พัสดุ',deptKey:'store',name:'งานตัดยอดน้ำมัน',O:1,S:3,rpn:3,risks:['น้ำมันไม่ตรง'],actions:['ตรวจสอบ STOCK','บันทึกทุกเดือน']},
   {id:'pu6',dept:'พัสดุ',deptKey:'store',name:'งานตรวจปล่อยเครื่องมืออุปกรณ์',O:1,S:3,rpn:3,risks:['อุปกรณ์ไม่ถูกต้อง'],actions:['ตรวจสอบก่อนปล่อย','OJT']},
   {id:'pu7',dept:'พัสดุ',deptKey:'store',name:'การควบคุมเอกสาร และ การบันทึก',O:1,S:2,rpn:2,risks:['บันทึกไม่ครบ'],actions:['OJT','ตรวจสอบ']},
   {id:'lk1',dept:'แผนกลูกหีบ',deptKey:'luk',name:'งานซ่อมแซมเครื่องจักรหีบอ้อย',O:1,S:3,rpn:3,risks:['ลูกหีบสึกหรอ'],actions:['PM ประจำปี','สต็อกอะไหล่']},
@@ -656,16 +656,16 @@ const riskData = [
   {id:'cp3',dept:'ด้านอ้อย (ปลูก)',deptKey:'cane1',name:'การคัดเลือกแปลงอ้อย',O:1,S:5,rpn:5,risks:['แปลงไม่เหมาะสม'],actions:['ใช้ระบบ GIS','วิเคราะห์ดิน']},
   {id:'cp4',dept:'ด้านอ้อย (ปลูก)',deptKey:'cane1',name:'การตัดอ้อย',O:1,S:5,rpn:5,risks:['ตัดไม่ถูกต้อง'],actions:['ฝึกอบรม','ตรวจสอบ']},
   {id:'cp5',dept:'ด้านอ้อย (ปลูก)',deptKey:'cane1',name:'การจ่ายเงินผู้รับเหมา (SCS)',O:1,S:5,rpn:5,risks:['จ่ายผิด','ล่าช้า'],actions:['ตรวจสอบข้อมูล','ระบบ SCS']},
-  {id:'ch1',dept:'ด้านอ้อย (เก็บเกี่ยว)',deptKey:'cane2',name:'กิจกรรมนำอ้อยเข้าหีบ',O:1,S:3,rpn:6,risks:['อ้อยไม่สด','อ้อยเน่าเสีย'],actions:['ควบคุมเวลาการขนส่ง','จัดคิวรถ']},
-  {id:'ch2',dept:'ด้านอ้อย (เก็บเกี่ยว)',deptKey:'cane2',name:'การรับรถบรรทุกอ้อยเข้าโรงงาน',O:1,S:5,rpn:20,risks:['รถบรรทุกไม่มีสารสเมคี','ปนเปื้อน','รถชน'],actions:['RFID เช็คเข้า','ตรวจสอบใบอนุญาต','จำกัดความเร็ว']},
-  {id:'ch3',dept:'ด้านอ้อย (เก็บเกี่ยว)',deptKey:'cane2',name:'การบรรทุกอ้อยเข้าโรงงาน',O:1,S:5,rpn:20,risks:['รถเสีย','คนขับไม่มีใบขับขี่','อ้อยตกหล่น'],actions:['ตรวจสอบสภาพรถ','ตรวจใบขับขี่','จำกัดน้ำหนักบรรทุก']},
-  {id:'ch4',dept:'ด้านอ้อย (เก็บเกี่ยว)',deptKey:'cane2',name:'การจ่ายเงินผู้รับเหมา (ระบบ SCS)',O:1,S:5,rpn:25,risks:['จ่ายผิด','ระบบ Server ล่ม','Virus'],actions:['ตรวจสอบข้อมูลก่อน','Backup Server','Anti-virus และ Firewall']},
+  {id:'ch1',dept:'ด้านอ้อย (เก็บเกี่ยว)',deptKey:'cane2',name:'กิจกรรมนำอ้อยเข้าหีบ',O:1,S:3,rpn:3,risks:['อ้อยไม่สด','อ้อยเน่าเสีย'],actions:['ควบคุมเวลาการขนส่ง','จัดคิวรถ']},
+  {id:'ch2',dept:'ด้านอ้อย (เก็บเกี่ยว)',deptKey:'cane2',name:'การรับรถบรรทุกอ้อยเข้าโรงงาน',O:1,S:5,rpn:5,risks:['รถบรรทุกไม่มีสารสเมคี','ปนเปื้อน','รถชน'],actions:['RFID เช็คเข้า','ตรวจสอบใบอนุญาต','จำกัดความเร็ว']},
+  {id:'ch3',dept:'ด้านอ้อย (เก็บเกี่ยว)',deptKey:'cane2',name:'การบรรทุกอ้อยเข้าโรงงาน',O:1,S:5,rpn:5,risks:['รถเสีย','คนขับไม่มีใบขับขี่','อ้อยตกหล่น'],actions:['ตรวจสอบสภาพรถ','ตรวจใบขับขี่','จำกัดน้ำหนักบรรทุก']},
+  {id:'ch4',dept:'ด้านอ้อย (เก็บเกี่ยว)',deptKey:'cane2',name:'การจ่ายเงินผู้รับเหมา (ระบบ SCS)',O:1,S:5,rpn:5,risks:['จ่ายผิด','ระบบ Server ล่ม','Virus'],actions:['ตรวจสอบข้อมูลก่อน','Backup Server','Anti-virus และ Firewall']},
   {id:'ch5',dept:'ด้านอ้อย (เก็บเกี่ยว)',deptKey:'cane2',name:'การควบคุมเอกสาร',O:1,S:3,rpn:3,risks:['เอกสารสูญหาย'],actions:['ระบบ Digital','จัดเก็บ Cloud']},
   // === จัดซื้อจัดจ้าง (NEW) ===
   {id:'pur1',dept:'จัดซื้อจัดจ้าง',deptKey:'purch',name:'การจัดซื้อวัตถุดิบและวัสดุ',O:2,S:2,rpn:4,risks:['วัตถุดิบไม่ได้ Spec','Supplier ส่งล่าช้า','ราคาผันผวน'],actions:['ตรวจสอบ Spec ก่อนสั่งซื้อ','มี Vendor List สำรอง','Lock ราคาล่วงหน้าในสัญญา']},
   {id:'pur2',dept:'จัดซื้อจัดจ้าง',deptKey:'purch',name:'การจัดซื้อเครื่องจักรและอุปกรณ์',O:2,S:2,rpn:4,risks:['เครื่องจักรไม่ตรงสเปค','การรับประกันไม่ครอบคลุม'],actions:['จัดทำ TOR ให้ชัดเจน','เปรียบเทียบ Quotation ≥3 ราย','ระบุ Warranty ในสัญญา']},
   {id:'pur3',dept:'จัดซื้อจัดจ้าง',deptKey:'purch',name:'การคัดเลือกและประเมิน Supplier',O:3,S:5,rpn:15,risks:['Supplier ไม่ผ่านมาตรฐาน','ไม่มีเอกสาร COA/Certificate','Vendor ปิดกิจการกระทันหัน'],actions:['ประเมิน Supplier ประจำปี','ขอ COA ก่อนรับสินค้า','จัดทำ Approved Vendor List','สำรอง Supplier สำรอง ≥2 ราย']},
-  {id:'pur4',dept:'จัดซื้อจัดจ้าง',deptKey:'purch',name:'การจัดทำสัญญาและ TOR',O:1,S:3,rpn:6,risks:['เงื่อนไขสัญญาไม่ชัดเจน','ล่าช้าในการอนุมัติ'],actions:['ใช้ Template สัญญามาตรฐาน','กำหนด SLA ในสัญญา','ระบุ Penalty Clause']},
+  {id:'pur4',dept:'จัดซื้อจัดจ้าง',deptKey:'purch',name:'การจัดทำสัญญาและ TOR',O:1,S:3,rpn:3,risks:['เงื่อนไขสัญญาไม่ชัดเจน','ล่าช้าในการอนุมัติ'],actions:['ใช้ Template สัญญามาตรฐาน','กำหนด SLA ในสัญญา','ระบุ Penalty Clause']},
   {id:'pur5',dept:'จัดซื้อจัดจ้าง',deptKey:'purch',name:'งานตรวจรับสินค้า',O:2,S:2,rpn:4,risks:['สินค้าไม่ตรง PO','จำนวนขาดหรือเกิน','ของเสียหายระหว่างขนส่ง'],actions:['ตรวจรับตาม PO ทุกครั้ง','บันทึกใน SAP ทันที','ถ่ายรูปหลักฐานกรณีเสียหาย']},
   {id:'pur6',dept:'จัดซื้อจัดจ้าง',deptKey:'purch',name:'การควบคุมเอกสาร',O:1,S:2,rpn:2,risks:['เอกสารสูญหาย','บันทึกไม่ครบ'],actions:['จัดเก็บบน One Drive','OJT บุคลากรใหม่']},
   // === ฝ่ายการตลาด (NEW) ===
@@ -676,17 +676,17 @@ const riskData = [
   // === ไฟฟ้าผลิต (NEW) ===
   {id:'elec1',dept:'ไฟฟ้าผลิต',deptKey:'elec',name:'ผลิตไฟฟ้า (Turbine/Generator)',O:1,S:2,rpn:2,risks:['อุปกรณ์ Control เครื่องจักร Error','ความสำนึกของพนักงาน Operate น้อย'],actions:['อุปกรณ์จำเป็นต้องทำการทำการทรงดอยที่สมบูรณ์แก้','ทำการ OJT เพิ่มความรู้ประสิทธิภาพการผลิตไฟฟ้า']},
   {id:'elec2',dept:'ไฟฟ้าผลิต',deptKey:'elec',name:'ควบคุม Control เครื่องจักร',O:1,S:2,rpn:2,risks:['ระบบ DCS Control ผิดพลาด','Human Error จากพนักงาน'],actions:['ตรวจสอบระบบ DCS สม่ำเสมอ','OJT พนักงาน Operator']},
-  {id:'elec3',dept:'ไฟฟ้าผลิต',deptKey:'elec',name:'ระบบน้ำมันหล่อลื่นเครื่องจักร',O:1,S:2,rpn:4,risks:['ระบบน้ำมันขาดหรือรั่ว','เครื่องจักรขัดข้องจากน้ำมัน'],actions:['เปลี่ยนน้ำมันตามรอบที่กำหนด','ตรวจสอบระบบท่อน้ำมันประจำ']},
+  {id:'elec3',dept:'ไฟฟ้าผลิต',deptKey:'elec',name:'ระบบน้ำมันหล่อลื่นเครื่องจักร',O:1,S:2,rpn:2,risks:['ระบบน้ำมันขาดหรือรั่ว','เครื่องจักรขัดข้องจากน้ำมัน'],actions:['เปลี่ยนน้ำมันตามรอบที่กำหนด','ตรวจสอบระบบท่อน้ำมันประจำ']},
   {id:'elec4',dept:'ไฟฟ้าผลิต',deptKey:'elec',name:'Motor pump ดันน้ำหล่อเย็น',O:1,S:1,rpn:1,risks:['Motor ไหม้','ปั้มน้ำไม่ทำงาน'],actions:['PM ตามกำหนด','Spare pump สำรอง']},
   {id:'elec5',dept:'ไฟฟ้าผลิต',deptKey:'elec',name:'เครื่องวัดโหลดไฟฟ้าไม่สมดุล',O:1,S:1,rpn:1,risks:['Overload ระบบ','ไฟฟ้าดับกระทันหัน'],actions:['ตรวจสอบ Load balance ประจำ','ติดตั้ง Protection Relay']},
-  {id:'elec6',dept:'ไฟฟ้าผลิต',deptKey:'elec',name:'Steam ไอน้ำรวมชุดท่อสมวน',O:1,S:2,rpn:4,risks:['ท่อ Steam รั่ว','Pressure เกินกำหนด'],actions:['ใช้ประกันดีที่ความดันและแรงดันสูงให้โกนมาตรฐาน','ตรวจสอบ Safety Valve ประจำปี']},
+  {id:'elec6',dept:'ไฟฟ้าผลิต',deptKey:'elec',name:'Steam ไอน้ำรวมชุดท่อสมวน',O:1,S:2,rpn:2,risks:['ท่อ Steam รั่ว','Pressure เกินกำหนด'],actions:['ใช้ประกันดีที่ความดันและแรงดันสูงให้โกนมาตรฐาน','ตรวจสอบ Safety Valve ประจำปี']},
   // === วิเคราะห์คุณภาพ (NEW) ===
-  {id:'qa1',dept:'วิเคราะห์คุณภาพ',deptKey:'qa',name:'การสุ่มตัวอย่าง (Sampling)',O:1,S:2,rpn:4,risks:['ตัวอย่างไม่เป็นตัวแทนของ Lot','ภาชนะเก็บตัวอย่างปนเปื้อน'],actions:['ทำตามขั้นตอน WI การสุ่ม','ใช้ภาชนะสะอาดผ่านการฆ่าเชื้อ','ทำการ OJT พนักงานสม่ำเสมอ']},
-  {id:'qa2',dept:'วิเคราะห์คุณภาพ',deptKey:'qa',name:'การวิเคราะห์ %Cs น้ำอ้อย',O:1,S:4,rpn:16,risks:['เครื่อง Refractometer ไม่สอบเทียบ','อ่านค่าผิดพลาด','น้ำอ้อยปนเปื้อนสิ่งแปลกปลอม'],actions:['สอบเทียบ Refractometer ทุกวัน','ตรวจสอบ Double Check ก่อนรายงาน','บันทึก Logbook ทุกการวิเคราะห์']},
-  {id:'qa3',dept:'วิเคราะห์คุณภาพ',deptKey:'qa',name:'การวิเคราะห์คุณภาพน้ำตาล',O:1,S:4,rpn:16,risks:['เครื่องมือวิเคราะห์ไม่ได้มาตรฐาน','ผลวิเคราะห์ไม่แม่นยำ','สารเคมีหมดอายุ'],actions:['ทำการ Calibrate เครื่องมือก่อนใช้','แจกแจง W1 มาตรฐานการวิเคราะห์','ตรวจสอบ Expiry สารเคมีทุกเดือน']},
-  {id:'qa4',dept:'วิเคราะห์คุณภาพ',deptKey:'qa',name:'การบันทึกข้อมูลในระบบ',O:1,S:2,rpn:4,risks:['บันทึกข้อมูลผิดพลาด','ระบบ Computer ล่ม','File Program สูญหาย'],actions:['ตรวจสอบ Double Check','บันทึกใน Excel (Protect Sheet)','ทำการ Backup ข้อมูลสม่ำเสมอ']},
-  {id:'qa5',dept:'วิเคราะห์คุณภาพ',deptKey:'qa',name:'การสอบเทียบเครื่องมือห้องปฏิบัติการ',O:1,S:2,rpn:4,risks:['เครื่องมือไม่สอบเทียบตามกำหนด','ใช้ Reference Standard ผิด'],actions:['วางแผน Calibration ประจำปี','ขอรับบริการจาก NIST/Accredited Lab','บันทึก Calibration Record']},
-  {id:'qa6',dept:'วิเคราะห์คุณภาพ',deptKey:'qa',name:'รายงานผลและส่งมอบข้อมูล',O:1,S:2,rpn:4,risks:['ส่งผลล่าช้า','ข้อมูลไม่ครบถ้วน','ส่งผลผิดคน'],actions:['กำหนด SLA การส่งผล','Double Check ก่อนส่ง','ใช้ Template รายงานมาตรฐาน']},
+  {id:'qa1',dept:'วิเคราะห์คุณภาพ',deptKey:'qa',name:'การสุ่มตัวอย่าง (Sampling)',O:1,S:2,rpn:2,risks:['ตัวอย่างไม่เป็นตัวแทนของ Lot','ภาชนะเก็บตัวอย่างปนเปื้อน'],actions:['ทำตามขั้นตอน WI การสุ่ม','ใช้ภาชนะสะอาดผ่านการฆ่าเชื้อ','ทำการ OJT พนักงานสม่ำเสมอ']},
+  {id:'qa2',dept:'วิเคราะห์คุณภาพ',deptKey:'qa',name:'การวิเคราะห์ %Cs น้ำอ้อย',O:1,S:4,rpn:4,risks:['เครื่อง Refractometer ไม่สอบเทียบ','อ่านค่าผิดพลาด','น้ำอ้อยปนเปื้อนสิ่งแปลกปลอม'],actions:['สอบเทียบ Refractometer ทุกวัน','ตรวจสอบ Double Check ก่อนรายงาน','บันทึก Logbook ทุกการวิเคราะห์']},
+  {id:'qa3',dept:'วิเคราะห์คุณภาพ',deptKey:'qa',name:'การวิเคราะห์คุณภาพน้ำตาล',O:1,S:4,rpn:4,risks:['เครื่องมือวิเคราะห์ไม่ได้มาตรฐาน','ผลวิเคราะห์ไม่แม่นยำ','สารเคมีหมดอายุ'],actions:['ทำการ Calibrate เครื่องมือก่อนใช้','แจกแจง W1 มาตรฐานการวิเคราะห์','ตรวจสอบ Expiry สารเคมีทุกเดือน']},
+  {id:'qa4',dept:'วิเคราะห์คุณภาพ',deptKey:'qa',name:'การบันทึกข้อมูลในระบบ',O:1,S:2,rpn:2,risks:['บันทึกข้อมูลผิดพลาด','ระบบ Computer ล่ม','File Program สูญหาย'],actions:['ตรวจสอบ Double Check','บันทึกใน Excel (Protect Sheet)','ทำการ Backup ข้อมูลสม่ำเสมอ']},
+  {id:'qa5',dept:'วิเคราะห์คุณภาพ',deptKey:'qa',name:'การสอบเทียบเครื่องมือห้องปฏิบัติการ',O:1,S:2,rpn:2,risks:['เครื่องมือไม่สอบเทียบตามกำหนด','ใช้ Reference Standard ผิด'],actions:['วางแผน Calibration ประจำปี','ขอรับบริการจาก NIST/Accredited Lab','บันทึก Calibration Record']},
+  {id:'qa6',dept:'วิเคราะห์คุณภาพ',deptKey:'qa',name:'รายงานผลและส่งมอบข้อมูล',O:1,S:2,rpn:2,risks:['ส่งผลล่าช้า','ข้อมูลไม่ครบถ้วน','ส่งผลผิดคน'],actions:['กำหนด SLA การส่งผล','Double Check ก่อนส่ง','ใช้ Template รายงานมาตรฐาน']},
   // === วิเคราะห์คุณภาพ ===
   {id:'qa7',dept:'วิเคราะห์คุณภาพ',deptKey:'qa',name:'การพัฒนาทักษะบุคลากรห้องแล็บ',O:1,S:3,rpn:3,risks:['บุคลากรขาดทักษะการวิเคราะห์','ไม่ผ่าน OJT ตามกำหนด'],actions:['ทำแผนฝึกอบรมและประเมิน OJT','จัดทำ Skill Matrix','ส่งอบรมกับองค์กรภายนอก']},
   // === หม้อต้ม ===
@@ -702,10 +702,11 @@ const riskData = [
 ];
 
 function getRiskLevel(rpn){
-  if(rpn>=15)return{label:'CRIT',cls:'rb-crit',color:'var(--red)'};
-  if(rpn>=8)return{label:'HIGH',cls:'rb-high',color:'var(--accent)'};
-  if(rpn>=4)return{label:'MED',cls:'rb-med',color:'var(--yellow)'};
-  return{label:'LOW',cls:'rb-low',color:'var(--green)'};
+  // เกณฑ์ตาม Risk Matrix: 1-3=ต่ำ(เขียว), 4-6=ปานกลาง(เหลือง), 8-12=สูง(ส้ม), 15+=วิกฤต(แดง)
+  if(rpn>=15)return{label:'CRIT',cls:'rb-crit',color:'var(--red)',thLabel:'วิกฤต'};
+  if(rpn>=8) return{label:'HIGH',cls:'rb-high',color:'var(--orange)',thLabel:'สูง'};
+  if(rpn>=4) return{label:'MED', cls:'rb-med', color:'var(--yellow)',thLabel:'ปานกลาง'};
+  return       {label:'LOW', cls:'rb-low', color:'var(--green)',thLabel:'ต่ำ'};
 }
 
 function switchPage(page,el){
@@ -740,6 +741,7 @@ function buildMatrix(){
       if(rpn>=15)cls='risk-4';
       else if(rpn>=8)cls='risk-3';
       else if(rpn>=4)cls='risk-2';
+      else cls='risk-1';
       const tip=items.map(i=>i.name).join(' / ')||`RPN=${rpn}`;
       const count=items.length;
       html+=`<div class="matrix-cell ${cls}" data-tip="${tip}" onclick="showMatrixItems(${o},${s})">
@@ -793,9 +795,9 @@ function buildHeatmap(){
   document.getElementById('heatmapTableBody').innerHTML=sorted.map(d=>{
     const lv=getRiskLevel(d.rpn);
     let rowBg='transparent';
-    if(d.rpn>=15)rowBg='rgba(248,81,73,.06)';
-    else if(d.rpn>=8)rowBg='rgba(240,136,62,.05)';
-    else if(d.rpn>=4)rowBg='rgba(210,153,34,.04)';
+    if(d.rpn>=15)rowBg='rgba(239,68,68,.07)';
+    else if(d.rpn>=8)rowBg='rgba(249,115,22,.06)';
+    else if(d.rpn>=4)rowBg='rgba(234,179,8,.05)';
     return`<tr style="background:${rowBg};cursor:pointer;" onclick="openModal('${d.id}')">
       <td style="font-size:11px;color:var(--muted);">${d.dept}</td>
       <td style="font-size:12px;">${d.name}</td>
@@ -824,7 +826,7 @@ function buildDeptDetail(key){
     </div>
     <div style="display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap;">
       ${crit?`<div style="background:rgba(248,81,73,.1);border:1px solid rgba(248,81,73,.3);border-radius:8px;padding:12px 20px;"><div style="font-size:10px;color:var(--red);text-transform:uppercase;margin-bottom:4px;">CRITICAL</div><div style="font-size:24px;font-weight:700;color:var(--red);">${crit}</div></div>`:''}
-      ${high?`<div style="background:rgba(240,136,62,.1);border:1px solid rgba(240,136,62,.3);border-radius:8px;padding:12px 20px;"><div style="font-size:10px;color:var(--accent);text-transform:uppercase;margin-bottom:4px;">HIGH</div><div style="font-size:24px;font-weight:700;color:var(--accent);">${high}</div></div>`:''}
+      ${high?`<div style="background:rgba(234,88,12,.1);border:1px solid rgba(234,88,12,.3);border-radius:8px;padding:12px 20px;"><div style="font-size:10px;color:var(--orange);text-transform:uppercase;margin-bottom:4px;">HIGH สูง</div><div style="font-size:24px;font-weight:700;color:var(--orange);">${high}</div></div>`:''}
       ${med?`<div style="background:rgba(210,153,34,.1);border:1px solid rgba(210,153,34,.3);border-radius:8px;padding:12px 20px;"><div style="font-size:10px;color:var(--yellow);text-transform:uppercase;margin-bottom:4px;">MEDIUM</div><div style="font-size:24px;font-weight:700;color:var(--yellow);">${med}</div></div>`:''}
       ${low?`<div style="background:rgba(63,185,80,.1);border:1px solid rgba(63,185,80,.3);border-radius:8px;padding:12px 20px;"><div style="font-size:10px;color:var(--green);text-transform:uppercase;margin-bottom:4px;">LOW</div><div style="font-size:24px;font-weight:700;color:var(--green);">${low}</div></div>`:''}
     </div>
