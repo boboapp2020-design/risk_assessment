@@ -687,40 +687,18 @@ const riskData = [
   {id:'qa4',dept:'วิเคราะห์คุณภาพ',deptKey:'qa',name:'การบันทึกข้อมูลในระบบ',O:1,S:2,rpn:4,risks:['บันทึกข้อมูลผิดพลาด','ระบบ Computer ล่ม','File Program สูญหาย'],actions:['ตรวจสอบ Double Check','บันทึกใน Excel (Protect Sheet)','ทำการ Backup ข้อมูลสม่ำเสมอ']},
   {id:'qa5',dept:'วิเคราะห์คุณภาพ',deptKey:'qa',name:'การสอบเทียบเครื่องมือห้องปฏิบัติการ',O:1,S:2,rpn:4,risks:['เครื่องมือไม่สอบเทียบตามกำหนด','ใช้ Reference Standard ผิด'],actions:['วางแผน Calibration ประจำปี','ขอรับบริการจาก NIST/Accredited Lab','บันทึก Calibration Record']},
   {id:'qa6',dept:'วิเคราะห์คุณภาพ',deptKey:'qa',name:'รายงานผลและส่งมอบข้อมูล',O:1,S:2,rpn:4,risks:['ส่งผลล่าช้า','ข้อมูลไม่ครบถ้วน','ส่งผลผิดคน'],actions:['กำหนด SLA การส่งผล','Double Check ก่อนส่ง','ใช้ Template รายงานมาตรฐาน']},
+  // === วิเคราะห์คุณภาพ ===
   {id:'qa7',dept:'วิเคราะห์คุณภาพ',deptKey:'qa',name:'การพัฒนาทักษะบุคลากรห้องแล็บ',O:1,S:3,rpn:3,risks:['บุคลากรขาดทักษะการวิเคราะห์','ไม่ผ่าน OJT ตามกำหนด'],actions:['ทำแผนฝึกอบรมและประเมิน OJT','จัดทำ Skill Matrix','ส่งอบรมกับองค์กรภายนอก']},
-  // === เทคโนโลยีสารสนเทศ (NEW) ===
-  {id:'it1',dept:'เทคโนโลยีสารสนเทศ',deptKey:'it',name:'การจัดการระบบ Server และเครือข่าย',O:2,S:5,rpn:10,risks:['Server ล่ม','ระบบเครือข่ายขัดข้อง','ข้อมูลสูญหาย'],actions:['Backup ข้อมูลทุกวัน','ติดตั้ง UPS สำรองไฟ','มี Failover Server สำรอง']},
-  {id:'it2',dept:'เทคโนโลยีสารสนเทศ',deptKey:'it',name:'ความปลอดภัยทางไซเบอร์',O:2,S:5,rpn:10,risks:['Virus/Malware โจมตีระบบ','การเข้าถึงข้อมูลโดยไม่มีสิทธิ์','Ransomware เข้ารหัสข้อมูล'],actions:['ติดตั้ง Anti-virus และ Firewall','กำหนดสิทธิ์ผู้ใช้งานตามบทบาท','อบรม Cybersecurity awareness ประจำปี']},
-  {id:'it3',dept:'เทคโนโลยีสารสนเทศ',deptKey:'it',name:'การบำรุงรักษาระบบ SAP/ERP',O:2,S:4,rpn:8,risks:['ระบบ SAP ขัดข้องระหว่างทำงาน','อัปเดตระบบล้มเหลว','ข้อมูลใน Database ผิดพลาด'],actions:['PM ระบบตามกำหนด','ทดสอบในระบบ Test ก่อน Go-live','ประสานงาน SAP Support']},
-  {id:'it4',dept:'เทคโนโลยีสารสนเทศ',deptKey:'it',name:'การสนับสนุนผู้ใช้งาน (IT Helpdesk)',O:3,S:2,rpn:6,risks:['แก้ไขปัญหาล่าช้า','ผู้ใช้ไม่มีความรู้ IT เพียงพอ'],actions:['กำหนด SLA การตอบสนอง','จัดทำ User Manual','อบรมผู้ใช้งานประจำปี']},
-  {id:'it5',dept:'เทคโนโลยีสารสนเทศ',deptKey:'it',name:'การควบคุมเอกสารและบันทึก IT',O:1,S:2,rpn:2,risks:['เอกสาร IT ไม่เป็นปัจจุบัน','License Software หมดอายุ'],actions:['จัดทำทะเบียน Software License','ตรวจสอบ License ทุกปี']},
-  // === หม้อต้ม (NEW) ===
+  // === หม้อต้ม ===
   {id:'bt1',dept:'หม้อต้ม',deptKey:'boitom',name:'กระบวนการต้มน้ำอ้อย',O:2,S:4,rpn:8,risks:['อุณหภูมิต้มไม่ได้มาตรฐาน','Brix ไม่ตรงตามกำหนด','เครื่องต้มขัดข้อง'],actions:['ตรวจวัด Brix ทุกชั่วโมง','PM เครื่องต้มตามแผน','OJT พนักงาน Operator']},
   {id:'bt2',dept:'หม้อต้ม',deptKey:'boitom',name:'การควบคุมคุณภาพน้ำอ้อยต้ม',O:2,S:4,rpn:8,risks:['น้ำอ้อยปนเปื้อน','ค่า pH ผิดปกติ','สารตกค้างในระบบ'],actions:['ตรวจสอบ pH ก่อนและหลังต้ม','ล้างทำความสะอาดระบบตามรอบ','บันทึก Log ทุก Batch']},
   {id:'bt3',dept:'หม้อต้ม',deptKey:'boitom',name:'ซ่อมบำรุงเครื่องจักรหม้อต้ม',O:1,S:3,rpn:3,risks:['อะไหล่ไม่พอ','ช่างขาดทักษะเฉพาะ'],actions:['สต็อกอะไหล่วิกฤต','PM ประจำปีก่อนฤดูหีบ']},
   {id:'bt4',dept:'หม้อต้ม',deptKey:'boitom',name:'การควบคุมเอกสารและบันทึก',O:1,S:2,rpn:2,risks:['บันทึกข้อมูลไม่ครบ'],actions:['OJT','ตรวจสอบโดยหัวหน้า']},
-  // === หม้อเคี่ยว (NEW) ===
-  {id:'bk1',dept:'หม้อเคี่ยว',deptKey:'boikiao',name:'กระบวนการเคี่ยวน้ำตาล',O:2,S:5,rpn:10,risks:['น้ำตาลไหม้/คาราเมล','Vacuum ไม่ได้ตามกำหนด','Crystal size ผิดมาตรฐาน'],actions:['ตรวจวัด Vacuum ทุกชั่วโมง','ควบคุม Temperature ให้คงที่','OJT พนักงาน Pan Boiler']},
-  {id:'bk2',dept:'หม้อเคี่ยว',deptKey:'boikiao',name:'การควบคุม Crystal Formation',O:2,S:4,rpn:8,risks:['ผลึกน้ำตาลขนาดไม่สม่ำเสมอ','Massecuite เกินความหนืด'],actions:['ตรวจวัด Brix/Pol ต่อเนื่อง','ปรับ Steam ตามคู่มือ WI']},
-  {id:'bk3',dept:'หม้อเคี่ยว',deptKey:'boikiao',name:'ซ่อมบำรุงหม้อเคี่ยว',O:1,S:3,rpn:3,risks:['Coil รั่ว','Valve ชำรุด'],actions:['ตรวจสอบก่อนเปิดฤดูหีบ','สต็อก Spare Part']},
-  {id:'bk4',dept:'หม้อเคี่ยว',deptKey:'boikiao',name:'การควบคุมเอกสารและบันทึก',O:1,S:2,rpn:2,risks:['บันทึกไม่ครบ'],actions:['OJT','ตรวจสอบโดยหัวหน้า']},
-  // === หม้อปั่น (NEW) ===
+  // === หม้อปั่น ===
   {id:'bp1',dept:'หม้อปั่น',deptKey:'boipan',name:'กระบวนการปั่นแยกน้ำตาล',O:2,S:4,rpn:8,risks:['Centrifuge สั่นสะเทือนผิดปกติ','น้ำตาลปั่นไม่แห้ง','Washing น้ำไม่สะอาด'],actions:['ตรวจสอบ Vibration ก่อนใช้งาน','ควบคุม Wash Water ให้สะอาด','PM ประจำฤดูกาล']},
   {id:'bp2',dept:'หม้อปั่น',deptKey:'boipan',name:'การควบคุมคุณภาพน้ำตาลปั่น',O:1,S:5,rpn:5,risks:['Moisture เกินมาตรฐาน','Pol ต่ำกว่าเกณฑ์','ปนเปื้อนสิ่งแปลกปลอม'],actions:['ตรวจวัด Moisture ทุก Batch','ส่งตัวอย่างห้องแล็บทันที','ตรวจสอบตะแกรงกรองสม่ำเสมอ']},
   {id:'bp3',dept:'หม้อปั่น',deptKey:'boipan',name:'ซ่อมบำรุงเครื่องปั่น',O:1,S:3,rpn:3,risks:['Bearing เสีย','Basket ชำรุด'],actions:['PM ก่อนและหลังฤดูหีบ','สต็อก Bearing และ Basket']},
   {id:'bp4',dept:'หม้อปั่น',deptKey:'boipan',name:'การควบคุมเอกสารและบันทึก',O:1,S:2,rpn:2,risks:['บันทึกไม่ครบ'],actions:['OJT','ตรวจสอบโดยหัวหน้า']},
-  // === ซ่อมบำรุงไฟฟ้า (NEW) ===
-  {id:'em1',dept:'ซ่อมบำรุงไฟฟ้า',deptKey:'elecmaint',name:'ซ่อมแซมระบบไฟฟ้าโรงงาน',O:2,S:5,rpn:10,risks:['ไฟฟ้าดับระหว่างผลิต','ช่างไฟขาดทักษะ','ความเสี่ยงไฟดูด'],actions:['Lock Out/Tag Out ก่อนซ่อม','OJT ความปลอดภัยไฟฟ้า','ตรวจสอบอุปกรณ์ PPE ก่อนปฏิบัติงาน']},
-  {id:'em2',dept:'ซ่อมบำรุงไฟฟ้า',deptKey:'elecmaint',name:'บำรุงรักษา MDB/DB และ Switchgear',O:1,S:4,rpn:4,risks:['Switchgear ขัดข้อง','Circuit Breaker Trip ไม่ทำงาน'],actions:['PM ระบบ MDB ทุกปี','ตรวจสอบ Thermal Scan ประจำปี']},
-  {id:'em3',dept:'ซ่อมบำรุงไฟฟ้า',deptKey:'elecmaint',name:'ซ่อมบำรุง Motor และ Pump',O:2,S:3,rpn:6,risks:['Motor ไหม้','Pump ชำรุด','Insulation เสื่อม'],actions:['ตรวจวัด Insulation ประจำปี','สต็อก Motor สำรอง','PM ตามแผน']},
-  {id:'em4',dept:'ซ่อมบำรุงไฟฟ้า',deptKey:'elecmaint',name:'ระบบ Grounding และ Lightning Protection',O:1,S:4,rpn:4,risks:['Grounding ไม่ได้มาตรฐาน','ฟ้าผ่าทำลายอุปกรณ์'],actions:['ตรวจสอบ Ground Resistance ประจำปี','ติดตั้ง Surge Protector']},
-  {id:'em5',dept:'ซ่อมบำรุงไฟฟ้า',deptKey:'elecmaint',name:'การควบคุมเอกสารและบันทึก',O:1,S:2,rpn:2,risks:['บันทึกซ่อมไม่ครบ'],actions:['OJT','ตรวจสอบโดยหัวหน้า']},
-  // === บริหารคุณภาพ (NEW) ===
-  {id:'qm1',dept:'บริหารคุณภาพ',deptKey:'qm',name:'การจัดการระบบ ISO 9001:2015',O:1,S:5,rpn:5,risks:['ไม่ผ่านการ Audit ภายนอก','เอกสาร QMS ไม่เป็นปัจจุบัน','พนักงานไม่เข้าใจ QMS'],actions:['Internal Audit ทุก 6 เดือน','ทบทวนเอกสาร QMS ประจำปี','อบรม ISO Awareness ทุกปี']},
-  {id:'qm2',dept:'บริหารคุณภาพ',deptKey:'qm',name:'การจัดการระบบ FSSC 22000',O:1,S:5,rpn:5,risks:['ไม่ผ่าน Certification Audit','HACCP ไม่ครอบคลุม CCP','สินค้าปนเปื้อนถึงผู้บริโภค'],actions:['HACCP Team ทบทวน CCP ทุกปี','Prerequisite Program (PRP) ครอบคลุมทุกพื้นที่','Mock Recall ทดสอบปีละครั้ง']},
-  {id:'qm3',dept:'บริหารคุณภาพ',deptKey:'qm',name:'การดำเนินการ CAR/PAR (Corrective Action)',O:2,S:3,rpn:6,risks:['ไม่วิเคราะห์ Root Cause','ไม่ติดตาม Effectiveness','ปัญหาซ้ำซาก'],actions:['ใช้ 5-Why / Fishbone วิเคราะห์','กำหนด Target Date ให้ชัดเจน','ติดตามผลและปิด CAR ทุกเดือน']},
-  {id:'qm4',dept:'บริหารคุณภาพ',deptKey:'qm',name:'การตรวจสอบและ Audit ภายใน',O:1,S:4,rpn:4,risks:['Auditor ขาดประสบการณ์','แผนการ Audit ไม่ครอบคลุม'],actions:['อบรม Internal Auditor ประจำปี','จัดทำ Audit Schedule ล่วงหน้า']},
-  {id:'qm5',dept:'บริหารคุณภาพ',deptKey:'qm',name:'การควบคุมเอกสารและบันทึก QMS',O:1,S:3,rpn:3,risks:['เอกสารฉบับเก่าถูกนำไปใช้','บันทึกคุณภาพหายหรือไม่ครบ'],actions:['ระบบ Document Control Online','ทบทวนและยกเลิกเอกสาร Obsolete']},
 ];
 
 function getRiskLevel(rpn){
