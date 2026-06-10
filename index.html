@@ -156,7 +156,7 @@
     <div class="nav-item" onclick="switchPage('dept-luk',this)"><div class="nav-dot" style="background:var(--yellow)"></div>ลูกหีบ<span class="nav-count">3</span></div>
     <div class="nav-item" onclick="switchPage('dept-boitom',this)"><div class="nav-dot" style="background:var(--red)"></div>หม้อต้ม<span class="nav-count">4</span></div>
     <div class="nav-item nav-disabled" title="ยังไม่มีข้อมูล"><div class="nav-dot" style="background:var(--border)"></div>หม้อเคี่ยว<span class="nav-count nav-count-lock">🔒</span></div>
-    <div class="nav-item" onclick="switchPage('dept-boipan',this)"><div class="nav-dot" style="background:var(--orange)"></div>หม้อปั่น<span class="nav-count">4</span></div>
+    <div class="nav-item nav-disabled" title="ยังไม่มีข้อมูล"><div class="nav-dot" style="background:var(--border)"></div>หม้อปั่น<span class="nav-count nav-count-lock">🔒</span></div>
     <div class="nav-item" onclick="switchPage('dept-elec',this)"><div class="nav-dot" style="background:var(--yellow)"></div>ไฟฟ้าผลิต<span class="nav-count">6</span></div>
     <div class="nav-item nav-disabled" title="ยังไม่มีข้อมูล"><div class="nav-dot" style="background:var(--border)"></div>ซ่อมบำรุงไฟฟ้า<span class="nav-count nav-count-lock">🔒</span></div>
     <div class="nav-item" onclick="switchPage('dept-mech',this)"><div class="nav-dot" style="background:var(--yellow)"></div>ซ่อมบำรุงเครื่องกล<span class="nav-count">6</span></div>
@@ -413,8 +413,8 @@
         <div class="mini-stats"></div>
       </div>
     </div>
-    <!-- หม้อปั่น Card (NEW) -->
-    <div class="dept-card">
+    <!-- หม้อปั่น Card (HIDDEN - no data yet) -->
+    <div class="dept-card" style="display:none">
       <div class="dept-header">
         <div class="dept-name"><div class="dept-icon" style="background:rgba(224,108,26,.12)">🌀</div>หม้อปั่น</div>
         <span class="risk-badge rb-high">สูง</span>
@@ -483,16 +483,11 @@
       <div class="bar-row"><div class="bar-label">วิเคราะห์คุณภาพ</div><div class="bar-track"><div class="bar-fill" style="width:82%;background:var(--red)"></div></div><div class="bar-value">51</div></div>
       <div class="bar-row"><div class="bar-label">ด้านอ้อย (ปลูก)</div><div class="bar-track"><div class="bar-fill" style="width:78%;background:var(--accent)"></div></div><div class="bar-value">78</div></div>
       <div class="bar-row"><div class="bar-label">ฝ่ายขายและการตลาด</div><div class="bar-track"><div class="bar-fill" style="width:74%;background:var(--accent)"></div></div><div class="bar-value">37</div></div>
-      <div class="bar-row"><div class="bar-label">IT / สารสนเทศ</div><div class="bar-track"><div class="bar-fill" style="width:70%;background:var(--accent)"></div></div><div class="bar-value">36</div></div>
-      <div class="bar-row"><div class="bar-label">ซ่อมบำรุงไฟฟ้า</div><div class="bar-track"><div class="bar-fill" style="width:65%;background:var(--accent)"></div></div><div class="bar-value">26</div></div>
-      <div class="bar-row"><div class="bar-label">หม้อเคี่ยว</div><div class="bar-track"><div class="bar-fill" style="width:62%;background:var(--accent)"></div></div><div class="bar-value">23</div></div>
       <div class="bar-row"><div class="bar-label">จัดซื้อ</div><div class="bar-track"><div class="bar-fill" style="width:60%;background:var(--accent)"></div></div><div class="bar-value">35</div></div>
       <div class="bar-row"><div class="bar-label">ซ่อมบำรุงเครื่องกล</div><div class="bar-track"><div class="bar-fill" style="width:58%;background:var(--accent)"></div></div><div class="bar-value">62</div></div>
       <div class="bar-row"><div class="bar-label">หม้อต้ม</div><div class="bar-track"><div class="bar-fill" style="width:50%;background:var(--yellow)"></div></div><div class="bar-value">21</div></div>
-      <div class="bar-row"><div class="bar-label">หม้อปั่น</div><div class="bar-track"><div class="bar-fill" style="width:46%;background:var(--yellow)"></div></div><div class="bar-value">18</div></div>
       <div class="bar-row"><div class="bar-label">งานบรรจุน้ำตาล</div><div class="bar-track"><div class="bar-fill" style="width:44%;background:var(--yellow)"></div></div><div class="bar-value">54</div></div>
       <div class="bar-row"><div class="bar-label">ทรัพยากรบุคคล</div><div class="bar-track"><div class="bar-fill" style="width:40%;background:var(--yellow)"></div></div><div class="bar-value">44</div></div>
-      <div class="bar-row"><div class="bar-label">บริหารคุณภาพ</div><div class="bar-track"><div class="bar-fill" style="width:36%;background:var(--yellow)"></div></div><div class="bar-value">23</div></div>
       <div class="bar-row"><div class="bar-label">หม้อไอน้ำ</div><div class="bar-track"><div class="bar-fill" style="width:32%;background:var(--yellow)"></div></div><div class="bar-value">36</div></div>
       <div class="bar-row"><div class="bar-label">ไฟฟ้าผลิต</div><div class="bar-track"><div class="bar-fill" style="width:24%;background:var(--green)"></div></div><div class="bar-value">14</div></div>
       <div class="bar-row"><div class="bar-label">พัสดุ</div><div class="bar-track"><div class="bar-fill" style="width:22%;background:var(--green)"></div></div><div class="bar-value">26</div></div>
